@@ -1,0 +1,2532 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قاعة ليلتي للاحتفالات | منصة ليلة</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --md-sys-color-primary: #522b47;
+        --md-sys-color-on-primary: #ffffff;
+        --md-sys-color-secondary: #b19470;
+        --md-sys-color-tertiary: #e8d5d8;
+        --md-sys-color-surface: #fcfaf9;
+        --md-sys-color-on-surface: #1d1b1e;
+        --md-sys-color-outline: #d1c4bc;
+        --md-sys-color-surface-variant: #f4eeed;
+        --spacing-xs: 4px;
+        --spacing-s: 8px;
+        --spacing-m: 16px;
+        --spacing-l: 24px;
+        --spacing-xl: 32px;
+        --radius-full: 999px;
+        --radius-large: 28px;
+        --radius-medium: 16px;
+        --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow-2: 0 8px 16px rgba(0, 0, 0, 0.08);
+        --shadow-3: 0 16px 32px rgba(0, 0, 0, 0.12);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        --color-primary-plum-700: var(--md-sys-color-primary);
+        --color-on-primary: var(--md-sys-color-on-primary);
+        --color-secondary-gold-500: var(--md-sys-color-secondary);
+        --color-background-n10: var(--md-sys-color-surface);
+        --color-surface: var(--md-sys-color-surface);
+        --color-surface-variant: var(--md-sys-color-surface-variant);
+        --color-outline: var(--md-sys-color-outline);
+        --color-text-primary: var(--md-sys-color-on-surface);
+        --color-text-secondary: color-mix(
+          in srgb,
+          var(--md-sys-color-on-surface) 72%,
+          transparent
+        );
+        --color-rating: var(--md-sys-color-secondary);
+        --font-family-base: "Tajawal", Arial, sans-serif;
+        --font-family-data:
+          "IBM Plex Sans Arabic", "Tajawal", Arial, sans-serif;
+        --space-4: var(--spacing-xs);
+        --space-8: var(--spacing-s);
+        --space-16: var(--spacing-m);
+        --space-24: var(--spacing-l);
+        --space-32: var(--spacing-xl);
+        --radius-lg: var(--radius-medium);
+        --radius-xl: var(--radius-large);
+        --shadow-e1: var(--shadow-1);
+        --shadow-e2: var(--shadow-2);
+        --shadow-e3: var(--shadow-3);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Tajawal", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a,
+      button,
+      input,
+      select,
+      textarea {
+        transition: var(--transition);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      .num {
+        font-family: "IBM Plex Sans Arabic", "Tajawal", sans-serif;
+      }
+
+      .material-symbols-rounded {
+        font-family: "Material Symbols Rounded";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .icon-filled {
+        font-variation-settings: "FILL" 1;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-text,
+      .nav-btn {
+        min-height: 44px;
+        padding: 10px 24px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        border: none;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-s);
+      }
+
+      .btn-primary {
+        background: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-1);
+      }
+
+      .btn-secondary {
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .btn-text {
+        background: transparent;
+        color: var(--md-sys-color-primary);
+        padding-inline: 14px;
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover,
+      .btn-text:hover,
+      .provider-card:hover,
+      .portfolio-card:hover,
+      .provider-stat:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+
+      .logout-custom-btn {
+        min-width: 130px;
+      }
+
+      /* --- صفحة تفاصيل مزود الخدمة --- */
+      .provider-page {
+        padding: 136px 6% 80px;
+        max-width: 1440px;
+        margin-inline: auto;
+      }
+
+      .provider-heading {
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .provider-heading h1 {
+        color: var(--md-sys-color-primary);
+        font-size: 2.4rem;
+        font-weight: 900;
+        line-height: 1.3;
+        margin-bottom: var(--spacing-m);
+      }
+
+      .provider-heading > p:not(.eyebrow) {
+        max-width: 780px;
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        font-size: 1.05rem;
+        margin-bottom: var(--spacing-l);
+      }
+
+      .provider-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        gap: var(--spacing-xl);
+        align-items: stretch;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .provider-hero-media {
+        min-height: 440px;
+        border-radius: var(--radius-large);
+        overflow: hidden;
+        border: 1px solid var(--md-sys-color-outline);
+        box-shadow: var(--shadow-2);
+        position: relative;
+        background:
+          linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent),
+            color-mix(in srgb, var(--md-sys-color-secondary) 16%, transparent)
+          ),
+          radial-gradient(
+            circle at 20% 20%,
+            color-mix(in srgb, var(--md-sys-color-on-primary) 82%, transparent),
+            transparent 34%
+          ),
+          linear-gradient(
+            135deg,
+            var(--md-sys-color-primary),
+            var(--md-sys-color-secondary) 55%,
+            var(--md-sys-color-surface)
+          );
+      }
+
+      .provider-hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 72% 28%,
+            color-mix(in srgb, var(--md-sys-color-on-primary) 35%, transparent),
+            transparent 18%
+          ),
+          linear-gradient(
+            to top,
+            color-mix(in srgb, var(--md-sys-color-on-surface) 42%, transparent),
+            transparent 52%
+          );
+      }
+
+      .provider-hero-media-content {
+        position: absolute;
+        z-index: 2;
+        inset-inline: var(--spacing-xl);
+        bottom: var(--spacing-xl);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .provider-hero-media-content strong {
+        display: block;
+        font-size: 2rem;
+        font-weight: 900;
+        line-height: 1.3;
+      }
+
+      .provider-hero-media-content span {
+        opacity: 0.88;
+      }
+
+      .provider-hero-content {
+        background: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-large);
+        box-shadow: var(--shadow-1);
+        padding: var(--spacing-xl);
+        display: grid;
+        gap: var(--spacing-l);
+      }
+
+      .provider-badge-row,
+      .provider-meta-row,
+      .provider-quick-actions,
+      .provider-contact-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-s);
+      }
+
+      .badge,
+      .chip {
+        min-height: 32px;
+        padding: 6px 14px;
+        border-radius: var(--radius-full);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+
+      .badge {
+        color: var(--md-sys-color-primary);
+        background: color-mix(
+          in srgb,
+          var(--md-sys-color-secondary) 18%,
+          transparent
+        );
+        border: 1px solid
+          color-mix(in srgb, var(--md-sys-color-secondary) 38%, transparent);
+      }
+
+      .chip {
+        color: var(--md-sys-color-primary);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .provider-title h1 {
+        color: var(--md-sys-color-primary);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 900;
+        line-height: 1.25;
+        margin-bottom: var(--spacing-s);
+      }
+
+      .provider-title p,
+      .muted {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+      }
+
+      .rating {
+        color: var(--md-sys-color-secondary);
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 900;
+      }
+
+      .star-rating {
+        display: inline-flex;
+        gap: var(--spacing-xs);
+        align-items: center;
+        min-height: 48px;
+      }
+
+      .star-btn {
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-outline);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .star-btn.active,
+      .star-btn.preview {
+        color: var(--md-sys-color-secondary);
+      }
+
+      .star-btn:focus-visible {
+        outline: none;
+        border-color: var(--md-sys-color-primary);
+        box-shadow: 0 0 0 4px rgba(82, 43, 71, 0.12);
+      }
+
+      .comment-error {
+        display: none;
+        color: var(--md-sys-color-error);
+        font-size: 0.85rem;
+        font-weight: 800;
+      }
+
+      .comment-error.show {
+        display: block;
+      }
+
+      .provider-quick-actions .btn-primary,
+      .provider-quick-actions .btn-secondary,
+      .provider-quick-actions .btn-text {
+        flex: 1 1 150px;
+      }
+
+      .provider-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: var(--spacing-xl);
+        align-items: start;
+      }
+
+      .provider-main {
+        display: grid;
+        gap: var(--spacing-xl);
+        min-width: 0;
+      }
+
+      .provider-sidebar {
+        display: grid;
+        gap: var(--spacing-m);
+      }
+
+      .provider-card,
+      .provider-action-card {
+        background: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-large);
+        box-shadow: var(--shadow-1);
+        padding: var(--spacing-xl);
+        transition: var(--transition);
+      }
+
+      .provider-card h2,
+      .provider-action-card h2 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.55rem;
+        line-height: 1.35;
+        font-weight: 900;
+        margin-bottom: var(--spacing-m);
+      }
+
+      .section-intro {
+        margin-bottom: var(--spacing-l);
+      }
+
+      .comments-list-title {
+        margin-top: var(--spacing-l);
+      }
+
+      .provider-gallery {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: var(--spacing-m);
+      }
+
+      .gallery-item {
+        border: none;
+        min-height: 180px;
+        border-radius: var(--radius-medium);
+        overflow: hidden;
+        position: relative;
+        background: var(--gallery-bg);
+        box-shadow: var(--shadow-1);
+        color: var(--md-sys-color-on-primary);
+        text-align: right;
+      }
+
+      .gallery-item.main {
+        min-height: 388px;
+        grid-row: span 2;
+      }
+
+      .gallery-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          color-mix(in srgb, var(--md-sys-color-on-surface) 50%, transparent),
+          transparent 58%
+        );
+      }
+
+      .gallery-item span {
+        position: absolute;
+        inset-inline: var(--spacing-m);
+        bottom: var(--spacing-m);
+        z-index: 2;
+        font-weight: 900;
+      }
+
+      .video-card {
+        display: grid;
+        place-items: center;
+        text-align: center;
+      }
+
+      .video-card .play {
+        width: 64px;
+        height: 64px;
+        border-radius: var(--radius-full);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: color-mix(
+          in srgb,
+          var(--md-sys-color-surface) 92%,
+          transparent
+        );
+        color: var(--md-sys-color-primary);
+        margin-bottom: 46px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .portfolio-grid,
+      .provider-info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--spacing-m);
+      }
+
+      .portfolio-card,
+      .provider-stat {
+        background: var(--md-sys-color-surface-variant);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        padding: var(--spacing-l);
+        transition: var(--transition);
+      }
+
+      .portfolio-card .material-symbols-rounded,
+      .provider-stat .material-symbols-rounded {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--radius-full);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-secondary);
+        margin-bottom: var(--spacing-s);
+      }
+
+      .portfolio-card h3,
+      .provider-stat h3 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.05rem;
+        font-weight: 900;
+        margin-bottom: 4px;
+      }
+
+      .provider-stat strong {
+        color: var(--md-sys-color-primary);
+        font-size: 1.1rem;
+      }
+
+      .comment-list {
+        display: grid;
+        gap: var(--spacing-m);
+        margin-bottom: var(--spacing-l);
+      }
+
+      .comment-card {
+        background: var(--md-sys-color-surface-variant);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        padding: var(--spacing-l);
+      }
+
+      .comment-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--spacing-m);
+        margin-bottom: var(--spacing-s);
+      }
+
+      .comment-head strong {
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+      }
+
+      .comment-form {
+        display: grid;
+        gap: var(--spacing-m);
+        padding-top: var(--spacing-l);
+        border-top: 1px solid var(--md-sys-color-outline);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: var(--spacing-m);
+      }
+
+      label {
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+      }
+
+      select,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+        padding: 12px 16px;
+        min-height: 44px;
+        outline: none;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      select:focus,
+      textarea:focus {
+        border-color: var(--md-sys-color-primary);
+        box-shadow: 0 0 0 4px rgba(82, 43, 71, 0.12);
+      }
+
+      .provider-action-card {
+        display: grid;
+        gap: var(--spacing-m);
+      }
+
+      .price-box {
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent),
+          color-mix(in srgb, var(--md-sys-color-secondary) 18%, transparent)
+        );
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        padding: var(--spacing-l);
+      }
+
+      .price-box span {
+        display: block;
+        opacity: 0.72;
+      }
+
+      .price-box strong {
+        display: block;
+        color: var(--md-sys-color-primary);
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+
+      .side-actions {
+        display: grid;
+        gap: var(--spacing-s);
+      }
+
+      .side-actions .btn-primary,
+      .side-actions .btn-secondary,
+      .side-actions .btn-text,
+      .contact-link {
+        width: 100%;
+      }
+
+      .contact-options {
+        display: grid;
+        gap: var(--spacing-s);
+        padding-top: var(--spacing-m);
+        border-top: 1px solid var(--md-sys-color-outline);
+      }
+
+      .contact-options h3 {
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+        font-size: 1.05rem;
+      }
+
+      .contact-link {
+        width: 100%;
+        min-height: 56px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-s);
+        padding: 12px 16px;
+        border-radius: var(--radius-medium);
+        background: var(--md-sys-color-surface-variant);
+        border: 1px solid var(--md-sys-color-outline);
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        font-weight: 800;
+        text-align: center;
+      }
+      .contact-link > span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-s);
+        line-height: 1.2;
+      }
+
+      .contact-link .material-symbols-rounded {
+        font-size: 24px;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .contact-link:hover {
+        background: var(--md-sys-color-surface);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-1);
+      }
+
+      .compare-link {
+        display: none;
+        text-align: center;
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+        text-decoration: none;
+        padding: var(--spacing-s);
+      }
+
+      .compare-link.show {
+        display: block;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-l);
+        background: color-mix(
+          in srgb,
+          var(--md-sys-color-on-surface) 56%,
+          transparent
+        );
+        z-index: 3000;
+      }
+
+      .modal.open {
+        display: flex;
+      }
+
+      .modal-content {
+        width: min(920px, 100%);
+        min-height: min(620px, 75vh);
+        border-radius: var(--radius-large);
+        background: var(--modal-bg, var(--md-sys-color-surface));
+        background-size: cover;
+        background-position: center;
+        border: 1px solid var(--md-sys-color-outline);
+        box-shadow: var(--shadow-3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .modal-content::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          color-mix(in srgb, var(--md-sys-color-on-surface) 52%, transparent),
+          transparent 62%
+        );
+      }
+
+      .modal-close {
+        position: absolute;
+        z-index: 2;
+        top: var(--spacing-m);
+        left: var(--spacing-m);
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-full);
+        border: none;
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-title {
+        position: absolute;
+        z-index: 2;
+        right: var(--spacing-xl);
+        bottom: var(--spacing-xl);
+        color: var(--md-sys-color-on-primary);
+        font-size: 1.6rem;
+        font-weight: 900;
+      }
+
+      .toast {
+        position: fixed;
+        right: 50%;
+        bottom: var(--spacing-l);
+        transform: translateX(50%) translateY(120px);
+        opacity: 0;
+        z-index: 4000;
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-3);
+        padding: var(--spacing-m);
+        font-weight: 800;
+        transition: var(--transition);
+        max-width: calc(100% - var(--spacing-xl));
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-s);
+      }
+
+      .toast .material-symbols-rounded {
+        color: var(--md-sys-color-primary);
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(50%) translateY(0);
+      }
+
+      footer {
+        background: var(--md-sys-color-surface-variant);
+        padding: 64px 6% 24px;
+        border-top: 1px solid var(--md-sys-color-outline);
+      }
+
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
+      }
+
+      .footer-col h4 {
+        color: var(--md-sys-color-primary);
+        margin-bottom: var(--spacing-m);
+        font-weight: 900;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        display: grid;
+        gap: var(--spacing-s);
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+      }
+      .provider-sidebar {
+        position: static;
+      }
+      .footer-col p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+      }
+
+      .footer-brand-col {
+        flex: 2;
+      }
+
+      .footer-brand-text {
+        margin-top: var(--spacing-m);
+      }
+
+      .footer-note {
+        text-align: center;
+        border-top: 1px solid var(--md-sys-color-outline);
+        padding-top: var(--spacing-l);
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.64;
+        font-size: 0.9rem;
+      }
+      .provider-heading h1 {
+        margin-bottom: var(--spacing-s);
+      }
+
+      .provider-heading > .provider-meta-row:first-of-type {
+        margin-bottom: var(--spacing-m);
+      }
+      .provider-action-card > .contact-options {
+        padding-top: 0;
+        border-top: 0;
+      }
+      .provider-comments .comment-form .form-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-l);
+      }
+
+      .provider-comments .comment-form .form-grid > div {
+        display: grid;
+        gap: var(--spacing-s);
+      }
+
+      .provider-comments .comment-form label {
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .provider-comments .star-rating {
+        justify-content: flex-start;
+        min-height: auto;
+      }
+      .hero-rating {
+        gap: var(--spacing-s);
+      }
+
+      .hero-rating-stars {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        color: var(--md-sys-color-secondary);
+      }
+
+      .hero-rating-stars .material-symbols-rounded {
+        font-size: 20px;
+      }
+      .gallery-item {
+        background-image: var(--gallery-bg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* ===== شريط التنقل Navbar ===== */
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6%;
+        background: var(--md-sys-color-surface);
+        backdrop-filter: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        transition: var(--transition);
+      }
+
+      .nav-main-row {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--spacing-l);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-xl);
+        justify-content: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      /* ===== شريط البحث داخل التنقل ===== */
+      .search-bar {
+        background: var(--md-sys-color-surface-variant);
+        border-radius: var(--radius-full);
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        flex: 1;
+        max-width: 420px;
+        transition: var(--transition);
+        cursor: text;
+      }
+
+      .search-bar:focus-within {
+        border-color: var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      /* ===== أزرار تسجيل الدخول وإنشاء الحساب ===== */
+      .nav-auth-btns {
+        display: flex;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-btn {
+        padding: 8px 20px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-btn-signup {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .nav-btn-login {
+        background-color: transparent;
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+
+      /* ===== حاوية الروابط للجوال ===== */
+      .nav-links-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: var(--spacing-s);
+        transition: var(--transition);
+      }
+
+      /* ===== أزرار عامة مستخدمة داخل التنقل ===== */
+      .btn-primary {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+
+      /* ===== جزء الحساب داخل التنقل ===== */
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .logout-custom-btn {
+        font-family: "Tajawal", sans-serif !important;
+        font-weight: 700 !important;
+        border-radius: 50px !important;
+        border: none;
+        cursor: pointer;
+        padding: 10px 24px;
+        height: 43px;
+        min-width: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        transition: all 0.3s ease;
+      }
+
+      .logout-custom-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      .nav-link {
+        font-family: "Tajawal", sans-serif !important;
+        font-weight: 500;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+      }
+      .hero-location {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+        font-size: 0.95rem;
+      }
+
+      .hero-location .material-symbols-rounded {
+        color: var(--md-sys-color-secondary);
+        font-size: 22px;
+      }
+      /* ===== Responsive الخاص بالتنقل من الصفحة ===== */
+      @media (max-width: 1100px) {
+        .nav-main-row .nav-links {
+          display: none;
+        }
+
+        .nav-links-row {
+          display: flex;
+          overflow-x: auto;
+          scrollbar-width: none;
+          padding: 8px 0 12px;
+        }
+
+        .nav-links-row::-webkit-scrollbar {
+          display: none;
+        }
+
+        .nav-links {
+          gap: var(--spacing-l);
+        }
+
+        .nav-links a {
+          font-size: 0.95rem;
+        }
+
+        .search-bar {
+          max-width: none;
+          min-width: 0;
+        }
+      }
+
+      @media (min-width: 1101px) {
+        .nav-links-row {
+          display: none;
+        }
+      }
+      @media (min-width: 1101px) {
+        .provider-sidebar {
+          position: static;
+
+          align-self: start;
+        }
+
+        .provider-action-card {
+          max-height: calc(100vh - 128px);
+          overflow-y: auto;
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .provider-hero,
+        .provider-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .provider-sidebar {
+          position: static;
+          order: -1;
+        }
+
+        .provider-action-card {
+          grid-template-columns: 1fr;
+          position: static;
+          max-height: none;
+          overflow: visible;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .provider-page {
+          padding-top: 164px;
+        }
+
+        .provider-gallery,
+        .portfolio-grid,
+        .provider-info-grid,
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-item.main {
+          min-height: 300px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .provider-page {
+          padding-inline: var(--spacing-m);
+          padding-bottom: 48px;
+        }
+
+        .provider-hero-media {
+          min-height: 320px;
+        }
+
+        .provider-hero-content,
+        .provider-card,
+        .provider-action-card {
+          padding: var(--spacing-l);
+          border-radius: var(--radius-medium);
+        }
+        .contact-link {
+          min-height: 56px;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .contact-link > span {
+          width: 100%;
+        }
+
+        .provider-quick-actions .btn-primary,
+        .provider-quick-actions .btn-secondary,
+        .provider-quick-actions .btn-text,
+        .comment-form .btn-primary {
+          width: 100%;
+          flex-basis: 100%;
+        }
+
+        .comment-head {
+          flex-direction: column;
+        }
+
+        .footer-grid {
+          display: grid;
+        }
+      }
+
+      /* --- شريط التنقل (Navbar) --- */
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6%;
+        background: var(--md-sys-color-surface);
+        backdrop-filter: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        transition: var(--transition);
+      }
+
+      .nav-main-row {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--spacing-l);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-xl);
+        justify-content: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      .search-bar {
+        background: var(--md-sys-color-surface-variant);
+        border-radius: var(--radius-full);
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        flex: 1;
+        max-width: 420px;
+        transition: var(--transition);
+        cursor: text;
+      }
+
+      .search-bar:focus-within {
+        border-color: var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      /* أزرار تسجيل الدخول وإنشاء حساب في الناف بار */
+      .nav-auth-btns {
+        display: flex;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-btn {
+        padding: 8px 20px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-btn-signup {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .nav-btn-login {
+        background-color: transparent;
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+      /* ===== User Dropdown Menu ===== */
+      .user-menu {
+        position: relative;
+        align-items: center;
+      }
+      .user-menu-trigger.icon-only {
+        width: 48px;
+        height: 48px;
+        min-height: 48px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: var(--radius-full);
+        transition: var(--transition);
+        box-shadow: none;
+      }
+
+      .user-menu-trigger.icon-only:hover {
+        background: var(--md-sys-color-surface-variant);
+        transform: none;
+        box-shadow: none;
+      }
+
+      .user-menu-trigger.icon-only .user-profile-icon {
+        font-size: 42px;
+        color: var(--md-sys-color-primary);
+        font-variation-settings: "FILL" 0;
+      }
+      .user-dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        min-width: 220px;
+        background: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-2);
+        overflow: hidden;
+        display: none;
+        z-index: 1200;
+      }
+
+      .user-dropdown.open {
+        display: block;
+      }
+
+      .user-dropdown-item {
+        width: 100%;
+        min-height: 54px;
+        padding: 12px 16px;
+        border: none;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        background: transparent;
+        color: var(--md-sys-color-on-surface);
+        text-decoration: none;
+        font-family: "Tajawal", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        text-align: right;
+        cursor: pointer;
+      }
+
+      .user-dropdown-item:last-child {
+        border-bottom: none;
+      }
+
+      .user-dropdown-item:hover {
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+      }
+
+      .user-dropdown-item .material-symbols-rounded {
+        color: var(--md-sys-color-primary);
+        font-size: 22px;
+      }
+
+      .user-dropdown-item.danger {
+        color: var(--md-sys-color-error, #d32f2f);
+      }
+
+      .user-dropdown-item.danger .material-symbols-rounded {
+        color: var(--md-sys-color-error, #d32f2f);
+      }
+      /* حاوية الروابط للسحب في الجوال */
+      .nav-links-row {
+        width: 100%;
+        display: none;
+        justify-content: center;
+        padding-bottom: var(--spacing-s);
+        transition: var(--transition);
+      }
+      /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+      @media (max-width: 1100px) {
+        .nav-main-row .nav-links {
+          display: none;
+        }
+        /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+        @media (max-width: 1100px) {
+          .nav-main-row .nav-links {
+            display: none;
+          }
+
+          .nav-links-row {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 8px 0 12px;
+          }
+
+          .nav-links-row::-webkit-scrollbar {
+            display: none;
+          }
+
+          .nav-links-row .nav-links {
+            display: flex;
+            gap: var(--spacing-l);
+            min-width: max-content;
+          }
+
+          .nav-links-row .nav-links a {
+            font-size: 0.95rem;
+          }
+
+          .search-bar {
+            max-width: none;
+            min-width: 0;
+          }
+          @media (min-width: 1101px) {
+            .nav-links-row {
+              display: none;
+            }
+
+            .promo-banner-section {
+              padding: 116px 6% 0;
+            }
+          }
+        }
+        @media (max-width: 768px) {
+          .user-dropdown {
+            left: 0;
+            min-width: 200px;
+          }
+
+          .user-menu-trigger {
+            padding-inline: 14px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      /* ===== Mobile navbar layout: logo right, search beside auth left ===== */
+      @media (max-width: 768px) {
+        .nav-main-row {
+          display: grid;
+          grid-template-columns: auto 1fr auto auto;
+          align-items: center;
+          column-gap: var(--spacing-s);
+        }
+
+        .logo {
+          grid-column: 1;
+          justify-self: start;
+          height: 48px;
+          display: inline-flex;
+          align-items: center;
+          line-height: 1;
+        }
+
+        .search-bar {
+          grid-column: 3;
+          justify-self: end;
+          width: 44px;
+          height: 48px;
+          min-width: 44px;
+          max-width: 44px;
+          padding: 0;
+          margin: 0;
+          border: none;
+          background: transparent;
+          border-radius: 0;
+          box-shadow: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+
+        .search-bar input {
+          display: none;
+        }
+
+        .search-bar .material-symbols-rounded {
+          width: 44px;
+          height: 48px;
+          margin: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          line-height: 1;
+          color: var(--md-sys-color-primary);
+        }
+
+        .nav-actions {
+          grid-column: 4;
+          justify-self: end;
+          align-self: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-main-row">
+        <a href="index.html" class="logo"> ليلة </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="Services.html">الخدمات</a></li>
+          <li><a href="Packages.html" class="active">الباقات</a></li>
+          <li><a href="Booking.html">الحجوزات</a></li>
+        </ul>
+
+        <div class="search-bar" id="searchBar">
+          <span class="material-symbols-rounded" id="searchIcon">search</span>
+          <input type="text" placeholder="ابحثي ..." id="searchInput" />
+        </div>
+
+        <script>
+          document
+            .getElementById("searchInput")
+            .addEventListener("keypress", function (event) {
+              if (event.key === "Enter") {
+                window.location.href = "search-results.html";
+              }
+            });
+
+          document
+            .getElementById("searchIcon")
+            .addEventListener("click", function () {
+              window.location.href = "search-results.html";
+            });
+        </script>
+
+        <div id="authSection" class="nav-actions">
+          <div
+            id="guestLinks"
+            style="display: flex; gap: 8px; align-items: center"
+          >
+            <a href="signup.html" class="nav-btn nav-btn-signup">انشاء حساب</a>
+            <a href="login.html" class="nav-btn nav-btn-login">دخول</a>
+          </div>
+
+          <div id="userLinks" class="user-menu" style="display: none">
+            <button
+              class="user-menu-trigger icon-only"
+              id="userMenuTrigger"
+              type="button"
+              aria-label="قائمة الحساب"
+            >
+              <span class="material-symbols-rounded user-profile-icon"
+                >account_circle</span
+              >
+            </button>
+
+            <div class="user-dropdown" id="userDropdown">
+              <a href="Profile.html" class="user-dropdown-item">
+                <span class="material-symbols-rounded">account_circle</span>
+                <span>الملف الشخصي</span>
+              </a>
+
+              <button
+                type="button"
+                class="user-dropdown-item danger"
+                onclick="logout()"
+              >
+                <span class="material-symbols-rounded">logout</span>
+                <span>تسجيل الخروج</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* تطبيق الخط والحواف الدائرية بدقة */
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        /* زر تسجيل الخروج المصحح */
+        .logout-custom-btn {
+          font-family:
+            "Tajawal", sans-serif !important; /* التأكد من نوع الخط */
+          font-weight: 700 !important;
+          border-radius: 50px !important; /* الحواف الدائرية المطلوبة */
+          border: none;
+          cursor: pointer;
+          padding: 10px 24px;
+          height: 43px;
+          min-width: 130px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--md-sys-color-primary);
+          color: var(--md-sys-color-on-primary);
+          transition: all 0.3s ease;
+        }
+
+        .logout-custom-btn:hover {
+          opacity: 0.9;
+          transform: translateY(-1px);
+        }
+
+        /* التأكد من خط "تسجيل الدخول" للزائر */
+        .nav-link {
+          font-family: "Tajawal", sans-serif !important;
+          font-weight: 500;
+          color: var(--md-sys-color-primary);
+          text-decoration: none;
+        }
+      </style>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const userName = localStorage.getItem("userName");
+          const guestLinks = document.getElementById("guestLinks");
+          const userLinks = document.getElementById("userLinks");
+
+          if (userName) {
+            guestLinks.style.display = "none";
+            userLinks.style.display = "flex";
+          } else {
+            guestLinks.style.display = "flex";
+            userLinks.style.display = "none";
+          }
+          const userMenuTrigger = document.getElementById("userMenuTrigger");
+          const userDropdown = document.getElementById("userDropdown");
+
+          if (userMenuTrigger && userDropdown) {
+            userMenuTrigger.addEventListener("click", (event) => {
+              event.stopPropagation();
+              userDropdown.classList.toggle("open");
+            });
+
+            document.addEventListener("click", () => {
+              userDropdown.classList.remove("open");
+            });
+
+            userDropdown.addEventListener("click", (event) => {
+              event.stopPropagation();
+            });
+          }
+        });
+
+        function logout() {
+          if (confirm("هل متأكد من تسجيل الخروج؟")) {
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userPhone");
+            window.location.reload();
+          }
+        }
+      </script>
+
+      <div class="nav-links-row">
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="Services.html">الخدمات</a></li>
+          <li><a href="Packages.html">الباقات</a></li>
+          <li><a href="Booking.html">حجوزاتي</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="provider-page">
+      <header class="provider-heading" aria-labelledby="provider-title">
+        <p class="eyebrow">تفاصيل الخدمة</p>
+
+        <h1 id="provider-title">قاعة ليلتي للاحتفالات</h1>
+
+        <div class="provider-meta-row" aria-label="موقع الخدمة">
+          <span class="hero-location">
+            <span class="material-symbols-rounded">location_on</span>
+            مكة، الشوقية
+          </span>
+        </div>
+
+        <p>
+          قاعة أفراح في مكة تجمع بين التنظيم الهادئ، التفاصيل الواضحة، وتجربة
+          حجز مناسبة للعائلات التي تبحث عن خدمة متكاملة دون تعقيد.
+        </p>
+
+        <div class="provider-meta-row" aria-label="ملخص معلومات الخدمة">
+          <span
+            class="chip rating hero-rating"
+            aria-label="تقييم الخدمة 4.8 من 5 بناءً على 126 مقيم"
+          >
+            <span class="hero-rating-stars" aria-hidden="true">
+              <span
+                class="material-symbols-rounded icon-filled"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-rounded icon-filled"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-rounded icon-filled"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-rounded icon-filled"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-rounded icon-filled"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+            </span>
+
+            <span>
+              <span class="num">4.8</span> من <span class="num">5</span> (<span
+                class="num"
+                >126</span
+              >
+              مقيم)
+            </span>
+          </span>
+          <span class="chip"
+            ><span class="material-symbols-rounded">visibility</span>
+            <span class="num">2,430</span> مشاهدة</span
+          >
+          <span class="chip"
+            ><span class="material-symbols-rounded">task_alt</span>
+            <span class="num">318</span> طلب</span
+          >
+        </div>
+      </header>
+
+      <div class="provider-layout">
+        <section class="provider-main">
+          <section class="provider-card" aria-label="معرض الصور والفيديو">
+            <div class="provider-gallery">
+              <button
+                class="gallery-item main"
+                aria-label="عرض صورة القاعة الرئيسية"
+                style="--gallery-bg: url(&quot;him1.png&quot;)"
+                data-bg="linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-secondary) 58%, var(--md-sys-color-surface))"
+              ></button>
+              <button
+                class="gallery-item"
+                aria-label="عرض صورة تفاصيل القاعة"
+                style="--gallery-bg: url(&quot;him1.png&quot;)"
+                data-bg="url('him1.png')"
+              ></button>
+              <button
+                class="gallery-item"
+                aria-label="عرض صورة تجهيزات القاعة"
+                style="--gallery-bg: url(&quot;him2.png&quot;)"
+                data-bg="url('him2.png')"
+                data-bg="linear-gradient(135deg, var(--md-sys-color-surface-variant), var(--md-sys-color-secondary) 56%, var(--md-sys-color-primary))"
+              ></button>
+              <button
+                class="gallery-item video-card"
+                aria-label="عرض فيديو الخدمة"
+                style="--gallery-bg: url(&quot;him3.png&quot;)"
+                data-bg="url('him3.png')"
+                data-bg="linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-secondary))"
+              >
+                <span class="play"
+                  ><span class="material-symbols-rounded"
+                    >play_arrow</span
+                  ></span
+                >
+              </button>
+            </div>
+          </section>
+
+          <section class="provider-card" aria-labelledby="description-title">
+            <h2 id="description-title">وصف الخدمة</h2>
+            <p>
+              قاعة ليلتي للاحتفالات مناسبة لحفلات الزواج والمناسبات الخاصة،
+              وتوفر تجربة متكاملة تشمل تنسيق القاعة، خدمات الضيافة، تجهيزات
+              الصوت والإضاءة، وتنظيم مسار الحفل من الاستقبال حتى نهاية المناسبة.
+              تم تصميم القاعة لتقليل عناء التخطيط على العائلة وتقديم تجربة
+              واضحة، راقية، وسهلة الحجز.
+            </p>
+          </section>
+
+          <section class="provider-card" aria-labelledby="portfolio-title">
+            <div class="section-intro">
+              <h2 id="portfolio-title">مواصفات القاعة</h2>
+              <p class="muted">أبرز المواصفات والخدمات المتوفرة داخل القاعة.</p>
+            </div>
+
+            <div class="portfolio-grid">
+              <article class="portfolio-card">
+                <span class="material-symbols-rounded">groups</span>
+                <h3>السعة التقريبية</h3>
+                <p class="muted">
+                  مساحة مناسبة لاستقبال عدد متوسط إلى كبير من الضيوف.
+                </p>
+              </article>
+              <article class="portfolio-card">
+                <span class="material-symbols-rounded">settings_voice</span>
+                <h3>تجهيزات الصوت والإضاءة</h3>
+                <p class="muted">
+                  تجهيزات صوت وإضاءة مناسبة لأجواء حفلات الزواج.
+                </p>
+              </article>
+              <article class="portfolio-card">
+                <span class="material-symbols-rounded">meeting_room</span>
+                <h3>مساحة استقبال الضيوف</h3>
+                <p class="muted">
+                  منطقة استقبال واضحة ومنظمة قبل دخول القاعة الرئيسية.
+                </p>
+              </article>
+              <article class="portfolio-card">
+                <span class="material-symbols-rounded">table_restaurant</span>
+                <h3>تنسيق الطاولات</h3>
+                <p class="muted">
+                  تنسيق طاولات مرتب يناسب هوية المناسبة وعدد الضيوف.
+                </p>
+              </article>
+              <article class="portfolio-card">
+                <span class="material-symbols-rounded">styler</span>
+                <h3>غرفة العروس</h3>
+                <p class="muted">
+                  غرفة مخصصة للعروس للاستعداد والراحة قبل بداية الحفل.
+                </p>
+              </article>
+              <article class="portfolio-card">
+                <span class="material-symbols-rounded">local_parking</span>
+                <h3>مواقف السيارات</h3>
+                <p class="muted">
+                  مواقف قريبة تساعد الضيوف على الوصول بسهولة للقاعة.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section
+            class="provider-card provider-comments"
+            aria-labelledby="comments-title"
+          >
+            <div class="section-intro">
+              <h2 id="comments-title">اكتب تعليقك</h2>
+              <p class="muted">
+                آراء مختصرة من عملاء سابقين لتوضيح جودة التجربة.
+              </p>
+            </div>
+
+            <form class="comment-form" id="commentForm">
+              <div class="form-grid">
+                <div>
+                  <label id="commentRatingLabel">التقييم</label>
+                  <div
+                    class="star-rating"
+                    id="commentRating"
+                    role="radiogroup"
+                    aria-labelledby="commentRatingLabel"
+                  >
+                    <button
+                      type="button"
+                      class="star-btn"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="تقييم 1 من 5"
+                      data-rating="1"
+                    >
+                      <span class="material-symbols-rounded">star</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="star-btn"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="تقييم 2 من 5"
+                      data-rating="2"
+                    >
+                      <span class="material-symbols-rounded">star</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="star-btn"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="تقييم 3 من 5"
+                      data-rating="3"
+                    >
+                      <span class="material-symbols-rounded">star</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="star-btn"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="تقييم 4 من 5"
+                      data-rating="4"
+                    >
+                      <span class="material-symbols-rounded">star</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="star-btn"
+                      role="radio"
+                      aria-checked="false"
+                      aria-label="تقييم 5 من 5"
+                      data-rating="5"
+                    >
+                      <span class="material-symbols-rounded">star</span>
+                    </button>
+                  </div>
+                  <p class="comment-error" id="ratingError">
+                    يرجى اختيار تقييم قبل الإرسال.
+                  </p>
+                </div>
+                <div>
+                  <label for="commentText">نص التعليق</label>
+                  <textarea
+                    id="commentText"
+                    placeholder="اكتبي تجربتك أو ملاحظتك حول الخدمة..."
+                  ></textarea>
+                  <p class="comment-error" id="commentTextError">
+                    يرجى كتابة تعليق قبل الإرسال.
+                  </p>
+                </div>
+              </div>
+              <button class="btn-primary" type="submit">
+                <span class="material-symbols-rounded">send</span> إرسال التعليق
+              </button>
+            </form>
+
+            <h3 class="comments-list-title">تعليقات المستخدمين</h3>
+            <div class="comment-list" id="commentList"></div>
+            <button
+              class="btn-secondary"
+              type="button"
+              id="showMoreComments"
+              style="display: none"
+            >
+              شاهد التعليقات الأخرى
+            </button>
+          </section>
+        </section>
+
+        <aside class="provider-sidebar">
+          <section class="provider-action-card" aria-labelledby="actions-title">
+            <h2 id="actions-title">إجراءات الخدمة</h2>
+
+            <div class="price-box">
+              <span>السعر الابتدائي</span>
+              <strong>يبدأ من <span class="num">8,000</span> ريال</strong>
+            </div>
+
+            <div class="side-actions">
+              <button class="btn-primary js-book">
+                <span class="material-symbols-rounded">event_available</span>
+                إكمال حجز الخدمة
+              </button>
+              <button class="btn-secondary js-favorite">
+                <span class="material-symbols-rounded js-favorite-icon"
+                  >favorite</span
+                >
+                إضافة إلى المفضلة
+              </button>
+              <button class="btn-secondary js-compare">
+                <span class="material-symbols-rounded">compare_arrows</span>
+                إضافة للمقارنة
+              </button>
+              <button class="btn-text js-share">
+                <span class="material-symbols-rounded">share</span>
+                مشاركة الصفحة
+              </button>
+              <a href="#" class="compare-link" id="compareLink">
+                عرض المقارنة
+              </a>
+            </div>
+          </section>
+
+          <section class="provider-action-card" aria-labelledby="contact-title">
+            <h2 id="contact-title">خيارات التواصل</h2>
+
+            <div class="contact-options">
+              <a class="contact-link" href="tel:+966500000000">
+                <span>
+                  <span class="material-symbols-rounded">call</span>
+                  الاتصال بالجوال
+                </span>
+              </a>
+
+              <a
+                class="contact-link"
+                href="https://wa.me/966500000000"
+                target="_blank"
+                rel="noopener"
+              >
+                <span>
+                  <span class="material-symbols-rounded">chat</span>
+                  التواصل عبر واتساب
+                </span>
+              </a>
+
+              <a class="contact-link" href="#" target="_blank" rel="noopener">
+                <span>
+                  <span class="material-symbols-rounded">language</span>
+                  زيارة الموقع
+                </span>
+              </a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <style>
+      li a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col" style="flex: 2">
+          <div class="logo">ليلة</div>
+          <p style="margin-top: 20px; color: #666">
+            المنصة السعودية الأولى لتخطيط الزفاف بكل ذكاء وهدوء.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="join.html">انضم كمورد </a></li>
+            <li>سياسة الخصوصية</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>تواصل معنا</h4>
+          <p>مكة، المملكة العربية السعودية</p>
+          <p>support@laylah.sa</p>
+        </div>
+      </div>
+      <div
+        style="
+          text-align: center;
+          border-top: 1px solid var(--md-sys-color-outline);
+          padding-top: 24px;
+          color: #888;
+          font-size: 0.9rem;
+        "
+      >
+        &copy; 2026 منصة ليلة. جميع الحقوق محفوظة.
+      </div>
+    </footer>
+
+    <div class="modal" id="galleryModal" aria-hidden="true">
+      <div
+        class="modal-content"
+        id="modalContent"
+        role="dialog"
+        aria-modal="true"
+        aria-label="عرض الصورة"
+      >
+        <button class="modal-close" id="modalClose" aria-label="إغلاق">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <span class="material-symbols-rounded" aria-hidden="true">task_alt</span
+      ><span id="toastText">تم تنفيذ الإجراء</span>
+    </div>
+
+    <script>
+      const service = {
+        id: "laylati-hall-001",
+        name: "قاعة ليلتي للاحتفالات",
+        provider: "مؤسسة ليلتي لتنظيم المناسبات",
+        type: "قاعة أفراح",
+        city: "مكة",
+        district: "الشوقية",
+        price: "يبدأ من 8,000 ريال",
+        rating: 4.8,
+      };
+
+      function getStoredArray(key) {
+        try {
+          return JSON.parse(localStorage.getItem(key)) || [];
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function setStoredArray(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        const toastText = document.getElementById("toastText");
+        toastText.textContent = message;
+        toast.classList.add("show");
+        window.clearTimeout(showToast.timer);
+        showToast.timer = window.setTimeout(
+          () => toast.classList.remove("show"),
+          2600,
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const userName = localStorage.getItem("userName");
+        const guestLinks = document.getElementById("guestLinks");
+        const userLinks = document.getElementById("userLinks");
+
+        if (userName) {
+          guestLinks.style.display = "none";
+          userLinks.style.display = "flex";
+        } else {
+          guestLinks.style.display = "flex";
+          userLinks.style.display = "none";
+        }
+
+        updateFavoriteUI();
+        renderComments();
+      });
+
+      function logout() {
+        if (confirm("هل متأكد من تسجيل الخروج؟")) {
+          localStorage.removeItem("userName");
+          localStorage.removeItem("userPhone");
+          window.location.reload();
+        }
+      }
+
+      function updateFavoriteUI() {
+        const favorites = getStoredArray("favoriteServices");
+        const isFavorite = favorites.some((item) => item.id === service.id);
+        document.querySelectorAll(".js-favorite").forEach((button) => {
+          button.innerHTML = `<span class="material-symbols-rounded js-favorite-icon ${isFavorite ? "icon-filled" : ""}">favorite</span> ${isFavorite ? "تمت الإضافة للمفضلة" : button.textContent.includes("أضيفي") ? "أضيفي للمفضلة" : "إضافة إلى المفضلة"}`;
+        });
+      }
+
+      document.querySelectorAll(".js-favorite").forEach((button) => {
+        button.addEventListener("click", () => {
+          const favorites = getStoredArray("favoriteServices");
+          if (!favorites.some((item) => item.id === service.id)) {
+            favorites.push(service);
+            setStoredArray("favoriteServices", favorites);
+          }
+          updateFavoriteUI();
+          showToast("تمت الإضافة للمفضلة");
+        });
+      });
+
+      document.querySelectorAll(".js-compare").forEach((button) => {
+        button.addEventListener("click", () => {
+          const compareServices = getStoredArray("compareServices");
+          const exists = compareServices.some((item) => item.id === service.id);
+
+          if (exists) {
+            showToast("الخدمة موجودة بالفعل في المقارنة");
+          } else {
+            compareServices.push(service);
+            setStoredArray("compareServices", compareServices);
+            showToast("تمت إضافة الخدمة للمقارنة");
+          }
+
+          document.getElementById("compareLink").classList.add("show");
+        });
+      });
+
+      document.querySelectorAll(".js-share").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const shareData = {
+            title: service.name,
+            text: "شاهدي تفاصيل قاعة ليلتي للاحتفالات على منصة ليلة",
+            url: window.location.href,
+          };
+
+          try {
+            if (navigator.share) {
+              await navigator.share(shareData);
+              showToast("تمت مشاركة الصفحة");
+            } else {
+              await navigator.clipboard.writeText(window.location.href);
+              showToast("تم نسخ رابط الصفحة");
+            }
+          } catch (error) {
+            try {
+              await navigator.clipboard.writeText(window.location.href);
+              showToast("تم نسخ رابط الصفحة");
+            } catch (clipboardError) {
+              showToast("تعذر نسخ الرابط، انسخي الرابط من شريط المتصفح");
+            }
+          }
+        });
+      });
+
+      document.querySelectorAll(".js-book").forEach((button) => {
+        button.addEventListener("click", () => {
+          window.location.href = `checkout.html?service=${encodeURIComponent(service.id)}`;
+        });
+      });
+
+      const modal = document.getElementById("galleryModal");
+      const modalContent = document.getElementById("modalContent");
+      const galleryItems = Array.from(
+        document.querySelectorAll(".gallery-item[data-bg]:not(.video-card)"),
+      );
+      const mainGalleryItem = document.querySelector(".gallery-item.main");
+      const thumbnailGalleryItems = galleryItems.filter(
+        (item) => item !== mainGalleryItem,
+      );
+      const videoGalleryItem = document.querySelector(
+        ".gallery-item.video-card",
+      );
+      let galleryIndex = 0;
+      let galleryTimer;
+
+      function updateMainGallery(item) {
+        if (!mainGalleryItem || !item) return;
+        mainGalleryItem.style.setProperty("--gallery-bg", item.dataset.bg);
+        mainGalleryItem.dataset.bg = item.dataset.bg;
+      }
+
+      function startGallerySlider() {
+        window.clearInterval(galleryTimer);
+        galleryTimer = window.setInterval(() => {
+          galleryIndex = (galleryIndex + 1) % galleryItems.length;
+          updateMainGallery(galleryItems[galleryIndex]);
+        }, 4000);
+      }
+
+      if (mainGalleryItem) {
+        mainGalleryItem.addEventListener("click", () => {
+          modalContent.style.setProperty(
+            "--modal-bg",
+            mainGalleryItem.dataset.bg,
+          );
+          modal.classList.add("open");
+          modal.setAttribute("aria-hidden", "false");
+        });
+      }
+
+      thumbnailGalleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          galleryIndex = galleryItems.indexOf(item);
+          updateMainGallery(item);
+          startGallerySlider();
+        });
+      });
+
+      if (videoGalleryItem) {
+        videoGalleryItem.addEventListener("click", () => {
+          showToast("فيديو الخدمة سيكون متاحًا قريبًا");
+        });
+      }
+
+      startGallerySlider();
+
+      document
+        .getElementById("modalClose")
+        .addEventListener("click", closeModal);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeModal();
+      });
+
+      function closeModal() {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      const defaultComments = [
+        {
+          name: "سارة العتيبي",
+          date: "12 مارس 2026",
+          rating: 5,
+          text: "التنسيق كان جميل جدًا، وفريق القاعة متعاون من بداية الحجز إلى نهاية المناسبة.",
+        },
+        {
+          name: "نورة الحربي",
+          date: "28 فبراير 2026",
+          rating: 5,
+          text: "أعجبني وضوح التفاصيل والسعر، والقاعة كانت مرتبة ومناسبة لعدد الضيوف.",
+        },
+        {
+          name: "ريم الزهراني",
+          date: "15 يناير 2026",
+          rating: 4,
+          text: "تجربة ممتازة بشكل عام، الإضاءة والضيافة كانت من أفضل النقاط في الحفل.",
+        },
+        {
+          name: "لينا المطيري",
+          date: "9 يناير 2026",
+          rating: 5,
+          text: "القاعة كانت مرتبة والاستقبال واضح من بداية الدخول.",
+        },
+        {
+          name: "أمل القرشي",
+          date: "2 يناير 2026",
+          rating: 4,
+          text: "مناسبة جدًا للعائلة، والموقع كان سهل الوصول.",
+        },
+        {
+          name: "هند المالكي",
+          date: "24 ديسمبر 2025",
+          rating: 5,
+          text: "تنسيق الطاولات جميل وفريق العمل متعاون.",
+        },
+        {
+          name: "مها الغامدي",
+          date: "18 ديسمبر 2025",
+          rating: 4,
+          text: "خدمة جيدة والتجهيزات كانت واضحة ومنظمة.",
+        },
+        {
+          name: "عبير الشريف",
+          date: "7 ديسمبر 2025",
+          rating: 5,
+          text: "أحببت الإضاءة وترتيب منطقة الاستقبال.",
+        },
+        {
+          name: "دانة السلمي",
+          date: "30 نوفمبر 2025",
+          rating: 4,
+          text: "التجربة كانت مريحة والحجز كان واضحًا.",
+        },
+        {
+          name: "خلود الزهراني",
+          date: "22 نوفمبر 2025",
+          rating: 5,
+          text: "القاعة جميلة وتناسب المناسبات العائلية.",
+        },
+        {
+          name: "نجلاء العتيبي",
+          date: "14 نوفمبر 2025",
+          rating: 4,
+          text: "تنظيم جيد ومساحة مناسبة للضيوف.",
+        },
+        {
+          name: "منال الحربي",
+          date: "5 نوفمبر 2025",
+          rating: 5,
+          text: "أنصح بها لمن تبحث عن قاعة واضحة التفاصيل.",
+        },
+      ];
+
+      let selectedRating = 0;
+      let showAllComments = false;
+
+      function getComments() {
+        const stored = getStoredArray("serviceComments");
+        const serviceComments = stored.filter(
+          (comment) => comment.serviceId === service.id,
+        );
+        return [...serviceComments, ...defaultComments];
+      }
+
+      function starText(rating) {
+        return "★".repeat(Number(rating)) + "☆".repeat(5 - Number(rating));
+      }
+
+      function renderComments() {
+        const commentList = document.getElementById("commentList");
+        const showMoreButton = document.getElementById("showMoreComments");
+        const comments = getComments();
+        const visibleComments = showAllComments
+          ? comments
+          : comments.slice(0, 10);
+
+        commentList.innerHTML = visibleComments
+          .map(
+            (comment) => `
+              <article class="comment-card">
+                <div class="comment-head">
+                  <div>
+                    <strong>${comment.name}</strong>
+                    <p class="muted">${comment.date}</p>
+                  </div>
+                  <span class="rating" aria-label="${comment.rating} من 5">${starText(comment.rating)}</span>
+                </div>
+                <p>${comment.text}</p>
+              </article>
+            `,
+          )
+          .join("");
+
+        showMoreButton.style.display =
+          comments.length > 10 && !showAllComments ? "inline-flex" : "none";
+      }
+
+      document
+        .querySelectorAll("#commentRating .star-btn")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            selectedRating = Number(button.dataset.rating);
+            document.getElementById("ratingError").classList.remove("show");
+            document
+              .querySelectorAll("#commentRating .star-btn")
+              .forEach((starButton) => {
+                starButton.classList.toggle(
+                  "active",
+                  Number(starButton.dataset.rating) <= selectedRating,
+                );
+                starButton.setAttribute(
+                  "aria-checked",
+                  Number(starButton.dataset.rating) === selectedRating
+                    ? "true"
+                    : "false",
+                );
+              });
+          });
+        });
+
+      document
+        .getElementById("showMoreComments")
+        .addEventListener("click", () => {
+          showAllComments = true;
+          renderComments();
+        });
+
+      document
+        .getElementById("commentForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          const rating = selectedRating;
+          const text = document.getElementById("commentText").value.trim();
+          const ratingError = document.getElementById("ratingError");
+          const commentTextError = document.getElementById("commentTextError");
+
+          ratingError.classList.toggle("show", !rating);
+          commentTextError.classList.toggle("show", !text);
+
+          if (!rating || !text) {
+            return;
+          }
+
+          const comments = getStoredArray("serviceComments");
+          comments.unshift({
+            serviceId: service.id,
+            name: localStorage.getItem("userName") || "عميلة منصة ليلة",
+            date: new Date().toLocaleDateString("ar-SA", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }),
+            rating,
+            text,
+          });
+          setStoredArray("serviceComments", comments);
+          document.getElementById("commentText").value = "";
+          selectedRating = 0;
+          document
+            .querySelectorAll("#commentRating .star-btn")
+            .forEach((button) => {
+              button.classList.remove("active");
+              button.setAttribute("aria-checked", "false");
+            });
+          renderComments();
+          showToast("تم نشر تعليقك بنجاح");
+        });
+    </script>
+  </body>
+</html>

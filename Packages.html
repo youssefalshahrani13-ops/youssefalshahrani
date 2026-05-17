@@ -1,0 +1,1360 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>منصة ليلة | رفيقك الأمثل لتخطيط ليلة العمر</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,fill,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* نظام ألوان Material 3 مخصص للهوية الفاخرة */
+        --md-sys-color-primary: #522b47; /* Plum داكن للفخامة */
+        --md-sys-color-on-primary: #ffffff;
+        --md-sys-color-secondary: #b19470; /* ذهبي دافئ للتفاصيل */
+        --md-sys-color-tertiary: #e8d5d8; /* Rose ناعم للخلفيات */
+        --md-sys-color-surface: #fcfaf9; /* عاجي للخلفية الأساسية */
+        --md-sys-color-on-surface: #1d1b1e;
+        --md-sys-color-outline: #d1c4bc;
+        --md-sys-color-surface-variant: #f4eeed;
+
+        /* نظام المسافات 8px */
+        --spacing-xs: 4px;
+        --spacing-s: 8px;
+        --spacing-m: 16px;
+        --spacing-l: 24px;
+        --spacing-xl: 32px;
+
+        /* الحواف والظلال حسب معايير M3 */
+        --radius-full: 100px;
+        --radius-large: 28px;
+        --radius-medium: 16px;
+        --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow-2: 0 8px 16px rgba(0, 0, 0, 0.08);
+
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      /* --- صفحة الباقات --- */
+      .packages-page {
+        padding: 140px 6% 80px;
+        background: var(--md-sys-color-surface);
+      }
+
+      .custom-package-section,
+      .ready-packages-section {
+        margin-bottom: 64px;
+      }
+      .packages-intro-section {
+        margin-bottom: 32px;
+      }
+
+      .packages-intro-heading {
+        max-width: 780px;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .section-header {
+        margin-bottom: var(--spacing-s);
+      }
+      .packages-intro-heading h1 {
+        color: var(--md-sys-color-primary);
+        font-size: 2.4rem;
+        font-weight: 900;
+        line-height: 1.3;
+        margin-bottom: var(--spacing-m);
+      }
+
+      .packages-intro-heading p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        font-size: 1.05rem;
+      }
+
+      .package-paths-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+      }
+
+      .package-path-card {
+        background: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        padding: var(--spacing-xl);
+        box-shadow: var(--shadow-1);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .package-path-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-2);
+      }
+
+      .package-path-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-secondary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        margin-bottom: var(--spacing-m);
+      }
+
+      .package-path-card h3 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.4rem;
+        font-weight: 900;
+        margin-bottom: var(--spacing-m);
+      }
+
+      .package-path-card p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        margin-bottom: var(--spacing-l);
+      }
+
+      .ready-package-card {
+        background: var(--md-sys-color-on-primary);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-1);
+        transition: var(--transition);
+      }
+
+      .eyebrow {
+        color: var(--md-sys-color-secondary);
+        font-weight: 800;
+        margin-bottom: var(--spacing-s);
+      }
+      .custom-package-card {
+        padding: var(--spacing-xl);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--spacing-xl);
+        background: var(--md-sys-color-on-primary);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-1);
+        transition: var(--transition);
+      }
+
+      .custom-package-action {
+        display: flex;
+        align-items: center;
+      }
+
+      .custom-package-icon {
+        margin-bottom: 16px;
+      }
+      .custom-package-content {
+        max-width: 720px;
+      }
+
+      .custom-package-content h3 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin-bottom: var(--spacing-s);
+      }
+
+      .custom-package-content p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        margin-bottom: var(--spacing-l);
+      }
+
+      .custom-package-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-s);
+      }
+
+      .custom-package-tags span {
+        padding: 10px 16px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .custom-package-card {
+          grid-template-columns: 1fr;
+          align-items: start;
+          gap: var(--spacing-l);
+        }
+
+        .custom-package-card .btn {
+          width: fit-content;
+          justify-content: center;
+        }
+      }
+
+      .ready-package-card h3 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.4rem;
+        font-weight: 900;
+        margin-bottom: var(--spacing-s);
+      }
+
+      .ready-package-card p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+      }
+
+      .ready-packages-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+      }
+
+      .ready-package-card {
+        padding: var(--spacing-l);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+      }
+      .ready-package-card:hover,
+      .custom-package-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-2);
+      }
+
+      .custom-package-icon {
+        margin-bottom: 16px;
+
+        font-size: 40px;
+        transition: var(--transition);
+      }
+      .package-badge {
+        align-self: flex-start;
+        padding: 4px 12px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        font-size: 0.85rem;
+        font-weight: 800;
+      }
+
+      .ready-package-card ul {
+        list-style: none;
+        display: grid;
+        gap: var(--spacing-s);
+      }
+
+      .ready-package-card li {
+        position: relative;
+        padding-right: 24px;
+        color: var(--md-sys-color-on-surface);
+      }
+
+      .ready-package-card li::before {
+        content: "check_circle";
+        font-family: "Material Symbols Rounded";
+        position: absolute;
+        right: 0;
+        top: 1px;
+        color: var(--md-sys-color-secondary);
+        font-size: 18px;
+      }
+
+      .package-price {
+        margin-top: auto;
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+        font-size: 1.1rem;
+        font-family: "Tajawal", sans-serif;
+      }
+
+      /* Responsive لصفحة الباقات */
+      @media (max-width: 1100px) {
+        .package-paths-grid {
+          grid-template-columns: 1fr;
+        }
+        .packages-page {
+          padding: 150px 6% 64px;
+        }
+
+        .packages-intro-card {
+          grid-template-columns: 1fr;
+        }
+
+        .ready-packages-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .packages-page {
+          padding-top: 160px;
+        }
+        .packages-intro-heading h1 {
+          font-size: 1.8rem;
+        }
+
+        .package-path-card {
+          padding: var(--spacing-l);
+        }
+        .packages-intro-card,
+        .custom-package-card,
+        .ready-package-card {
+          padding: var(--spacing-l);
+        }
+
+        .packages-intro-content h1 {
+          font-size: 1.8rem;
+        }
+
+        .packages-intro-section,
+        .custom-package-section,
+        .ready-packages-section {
+          margin-bottom: 56px;
+        }
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Tajawal", sans-serif;
+      }
+
+      body {
+        background-color: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+        line-height: 1.6;
+      }
+
+      /* --- التحسينات التفاعلية (Interaction Design) --- */
+      a,
+      button {
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      /* --- شريط التنقل (Navbar) --- */
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6%;
+        background: var(--md-sys-color-surface);
+        backdrop-filter: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        transition: var(--transition);
+      }
+
+      .nav-main-row {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--spacing-l);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-xl);
+        justify-content: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      .search-bar {
+        background: var(--md-sys-color-surface-variant);
+        border-radius: var(--radius-full);
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        flex: 1;
+        max-width: 420px;
+        transition: var(--transition);
+        cursor: text;
+      }
+
+      .search-bar:focus-within {
+        border-color: var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      /* أزرار تسجيل الدخول وإنشاء حساب في الناف بار */
+      .nav-auth-btns {
+        display: flex;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-btn {
+        padding: 8px 20px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-btn-signup {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .nav-btn-login {
+        background-color: transparent;
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+
+      /* حاوية الروابط للسحب في الجوال */
+      .nav-links-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: var(--spacing-s);
+        transition: var(--transition);
+      }
+
+      /* --- الأزرار (Buttons M3) --- */
+      .btn {
+        padding: 12px 32px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-secondary {
+        background-color: var(--md-sys-color-on-primary);
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--md-sys-color-surface-variant);
+      }
+      .ready-package-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-s);
+        margin-top: var(--spacing-s);
+      }
+
+      .ready-package-actions .btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding-inline: 18px;
+      }
+
+      @media (max-width: 600px) {
+        .ready-package-actions {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- المميزات (Features) --- */
+      .features {
+        background: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        padding: 80px 6%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--spacing-xl);
+        text-align: center;
+      }
+
+      .feature-item i {
+        font-size: 3rem;
+        color: var(--md-sys-color-secondary);
+        margin-bottom: var(--spacing-m);
+      }
+      .feature-item h3 {
+        margin-bottom: var(--spacing-s);
+      }
+      .feature-item p {
+        opacity: 0.8;
+        font-size: 0.95rem;
+      }
+
+      /* --- التذييل (Footer) --- */
+      footer {
+        padding: 80px 6% 40px;
+        background: var(--md-sys-color-surface-variant);
+        border-top: 1px solid var(--md-sys-color-outline);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-xl);
+        margin-bottom: 60px;
+      }
+
+      .footer-col h4 {
+        margin-bottom: var(--spacing-l);
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+      }
+      .footer-col li {
+        list-style: none;
+        margin-bottom: 12px;
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        cursor: pointer;
+      }
+      .footer-col li:hover {
+        color: var(--md-sys-color-primary);
+      }
+
+      /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+      @media (max-width: 1100px) {
+        .nav-main-row .nav-links {
+          display: none;
+        }
+
+        .nav-links-row {
+          display: flex;
+          overflow-x: auto;
+          scrollbar-width: none;
+          padding: 8px 0 12px;
+        }
+
+        .nav-links-row::-webkit-scrollbar {
+          display: none;
+        }
+
+        .nav-links {
+          gap: var(--spacing-l);
+        }
+
+        .nav-links a {
+          font-size: 0.95rem;
+        }
+
+        .search-bar {
+          max-width: none;
+          min-width: 0;
+        }
+
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+      }
+
+      @media (min-width: 1101px) {
+        .nav-links-row {
+          display: none;
+        }
+        .promo-banner-section {
+          padding: 116px 6% 0;
+        }
+      }
+      @media (max-width: 600px) {
+        .custom-package-card {
+          padding: var(--spacing-l);
+          gap: var(--spacing-m);
+        }
+
+        .custom-package-content {
+          max-width: 100%;
+        }
+
+        .custom-package-content h3 {
+          font-size: 1.3rem;
+          line-height: 1.35;
+        }
+
+        .custom-package-content p {
+          font-size: 0.95rem;
+          margin-bottom: var(--spacing-m);
+        }
+
+        .custom-package-tags {
+          gap: var(--spacing-s);
+        }
+
+        .custom-package-tags span {
+          font-size: 0.85rem;
+          padding: 8px 12px;
+        }
+
+        .custom-package-card .btn {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+
+      /* --- شريط التنقل (Navbar) --- */
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6%;
+        background: var(--md-sys-color-surface);
+        backdrop-filter: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        transition: var(--transition);
+      }
+
+      .nav-main-row {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--spacing-l);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-xl);
+        justify-content: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      .search-bar {
+        background: var(--md-sys-color-surface-variant);
+        border-radius: var(--radius-full);
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        flex: 1;
+        max-width: 420px;
+        transition: var(--transition);
+        cursor: text;
+      }
+
+      .search-bar:focus-within {
+        border-color: var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      /* أزرار تسجيل الدخول وإنشاء حساب في الناف بار */
+      .nav-auth-btns {
+        display: flex;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-btn {
+        padding: 8px 20px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-btn-signup {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .nav-btn-login {
+        background-color: transparent;
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+      /* ===== User Dropdown Menu ===== */
+      .user-menu {
+        position: relative;
+        align-items: center;
+      }
+      .user-menu-trigger.icon-only {
+        width: 48px;
+        height: 48px;
+        min-height: 48px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: var(--radius-full);
+        transition: var(--transition);
+        box-shadow: none;
+      }
+
+      .user-menu-trigger.icon-only:hover {
+        background: var(--md-sys-color-surface-variant);
+        transform: none;
+        box-shadow: none;
+      }
+
+      .user-menu-trigger.icon-only .user-profile-icon {
+        font-size: 42px;
+        color: var(--md-sys-color-primary);
+        font-variation-settings: "FILL" 0;
+      }
+      .user-dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        min-width: 220px;
+        background: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-2);
+        overflow: hidden;
+        display: none;
+        z-index: 1200;
+      }
+
+      .user-dropdown.open {
+        display: block;
+      }
+
+      .user-dropdown-item {
+        width: 100%;
+        min-height: 54px;
+        padding: 12px 16px;
+        border: none;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        background: transparent;
+        color: var(--md-sys-color-on-surface);
+        text-decoration: none;
+        font-family: "Tajawal", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        text-align: right;
+        cursor: pointer;
+      }
+
+      .user-dropdown-item:last-child {
+        border-bottom: none;
+      }
+
+      .user-dropdown-item:hover {
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+      }
+
+      .user-dropdown-item .material-symbols-rounded {
+        color: var(--md-sys-color-primary);
+        font-size: 22px;
+      }
+
+      .user-dropdown-item.danger {
+        color: var(--md-sys-color-error, #d32f2f);
+      }
+
+      .user-dropdown-item.danger .material-symbols-rounded {
+        color: var(--md-sys-color-error, #d32f2f);
+      }
+      /* حاوية الروابط للسحب في الجوال */
+      .nav-links-row {
+        width: 100%;
+        display: none;
+        justify-content: center;
+        padding-bottom: var(--spacing-s);
+        transition: var(--transition);
+      }
+      /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+      @media (max-width: 1100px) {
+        .nav-main-row .nav-links {
+          display: none;
+        }
+        /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+        @media (max-width: 1100px) {
+          .nav-main-row .nav-links {
+            display: none;
+          }
+
+          .nav-links-row {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 8px 0 12px;
+          }
+
+          .nav-links-row::-webkit-scrollbar {
+            display: none;
+          }
+
+          .nav-links-row .nav-links {
+            display: flex;
+            gap: var(--spacing-l);
+            min-width: max-content;
+          }
+
+          .nav-links-row .nav-links a {
+            font-size: 0.95rem;
+          }
+
+          .search-bar {
+            max-width: none;
+            min-width: 0;
+          }
+          @media (min-width: 1101px) {
+            .nav-links-row {
+              display: none;
+            }
+
+            .promo-banner-section {
+              padding: 116px 6% 0;
+            }
+          }
+        }
+        @media (max-width: 768px) {
+          .user-dropdown {
+            left: 0;
+            min-width: 200px;
+          }
+
+          .user-menu-trigger {
+            padding-inline: 14px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      /* ===== Mobile navbar layout: logo right, search beside auth left ===== */
+      @media (max-width: 768px) {
+        .nav-main-row {
+          display: grid;
+          grid-template-columns: auto 1fr auto auto;
+          align-items: center;
+          column-gap: var(--spacing-s);
+        }
+
+        .logo {
+          grid-column: 1;
+          justify-self: start;
+          height: 48px;
+          display: inline-flex;
+          align-items: center;
+          line-height: 1;
+        }
+
+        .search-bar {
+          grid-column: 3;
+          justify-self: end;
+          width: 44px;
+          height: 48px;
+          min-width: 44px;
+          max-width: 44px;
+          padding: 0;
+          margin: 0;
+          border: none;
+          background: transparent;
+          border-radius: 0;
+          box-shadow: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+
+        .search-bar input {
+          display: none;
+        }
+
+        .search-bar .material-symbols-rounded {
+          width: 44px;
+          height: 48px;
+          margin: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          line-height: 1;
+          color: var(--md-sys-color-primary);
+        }
+
+        .nav-actions {
+          grid-column: 4;
+          justify-self: end;
+          align-self: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-main-row">
+        <a href="index.html" class="logo"> ليلة </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="Services.html">الخدمات</a></li>
+          <li><a href="Packages.html" class="active">الباقات</a></li>
+          <li><a href="Booking.html">الحجوزات</a></li>
+        </ul>
+
+        <div class="search-bar" id="searchBar">
+          <span class="material-symbols-rounded" id="searchIcon">search</span>
+          <input type="text" placeholder="ابحثي ..." id="searchInput" />
+        </div>
+
+        <script>
+          const searchInput = document.getElementById("searchInput");
+          const searchBar = document.getElementById("searchBar");
+
+          searchInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              window.location.href = "search-results.html";
+            }
+          });
+
+          searchBar.addEventListener("click", function () {
+            if (window.innerWidth <= 768) {
+              window.location.href = "search-results.html";
+            }
+          });
+        </script>
+
+        <div id="authSection" class="nav-actions">
+          <div
+            id="guestLinks"
+            style="display: flex; gap: 8px; align-items: center"
+          >
+            <a href="signup.html" class="nav-btn nav-btn-signup">انشاء حساب</a>
+            <a href="login.html" class="nav-btn nav-btn-login">دخول</a>
+          </div>
+
+          <div id="userLinks" class="user-menu" style="display: none">
+            <button
+              class="user-menu-trigger icon-only"
+              id="userMenuTrigger"
+              type="button"
+              aria-label="قائمة الحساب"
+            >
+              <span class="material-symbols-rounded user-profile-icon"
+                >account_circle</span
+              >
+            </button>
+
+            <div class="user-dropdown" id="userDropdown">
+              <a href="Profile.html" class="user-dropdown-item">
+                <span class="material-symbols-rounded">account_circle</span>
+                <span>الملف الشخصي</span>
+              </a>
+
+              <button
+                type="button"
+                class="user-dropdown-item danger"
+                onclick="logout()"
+              >
+                <span class="material-symbols-rounded">logout</span>
+                <span>تسجيل الخروج</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* تطبيق الخط والحواف الدائرية بدقة */
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        /* زر تسجيل الخروج المصحح */
+        .logout-custom-btn {
+          font-family:
+            "Tajawal", sans-serif !important; /* التأكد من نوع الخط */
+          font-weight: 700 !important;
+          border-radius: 50px !important; /* الحواف الدائرية المطلوبة */
+          border: none;
+          cursor: pointer;
+          padding: 10px 24px;
+          height: 43px;
+          min-width: 130px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--md-sys-color-primary);
+          color: var(--md-sys-color-on-primary);
+          transition: all 0.3s ease;
+        }
+
+        .logout-custom-btn:hover {
+          opacity: 0.9;
+          transform: translateY(-1px);
+        }
+
+        /* التأكد من خط "تسجيل الدخول" للزائر */
+        .nav-link {
+          font-family: "Tajawal", sans-serif !important;
+          font-weight: 500;
+          color: var(--md-sys-color-primary);
+          text-decoration: none;
+        }
+      </style>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const userName = localStorage.getItem("userName");
+          const guestLinks = document.getElementById("guestLinks");
+          const userLinks = document.getElementById("userLinks");
+
+          if (userName) {
+            guestLinks.style.display = "none";
+            userLinks.style.display = "flex";
+          } else {
+            guestLinks.style.display = "flex";
+            userLinks.style.display = "none";
+          }
+          const userMenuTrigger = document.getElementById("userMenuTrigger");
+          const userDropdown = document.getElementById("userDropdown");
+
+          if (userMenuTrigger && userDropdown) {
+            userMenuTrigger.addEventListener("click", (event) => {
+              event.stopPropagation();
+              userDropdown.classList.toggle("open");
+            });
+
+            document.addEventListener("click", () => {
+              userDropdown.classList.remove("open");
+            });
+
+            userDropdown.addEventListener("click", (event) => {
+              event.stopPropagation();
+            });
+          }
+        });
+
+        function logout() {
+          if (confirm("هل متأكد من تسجيل الخروج؟")) {
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userPhone");
+            window.location.reload();
+          }
+        }
+      </script>
+
+      <div class="nav-links-row">
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="Services.html">الخدمات</a></li>
+          <li><a href="Packages.html">الباقات</a></li>
+          <li><a href="Booking.html">حجوزاتي</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="packages-page">
+      <section class="packages-intro-section">
+        <div class="packages-intro-heading">
+          <h1>باقات ليلة</h1>
+          <p>
+            اختاري الطريقة الانسب لتخطيط زواجك: باقات جاهزة متنوعة، او تصميم
+            باقة مخصصة.
+          </p>
+        </div>
+      </section>
+
+      <section class="custom-package-section">
+        <div class="section-header">
+          <h2>صممي باقتك</h2>
+        </div>
+
+        <div class="custom-package-card">
+          <div class="custom-package-content">
+            <span class="material-symbols-rounded custom-package-icon">
+              design_services
+            </span>
+
+            <h3>ابني باقتك خطوة بخطوة</h3>
+
+            <p>
+              اختاري الخدمات التي تحتاجينها فقط مثل القاعة، الضيافة، التصوير،
+              التجميل، وكروت الدعوة، ثم اجمعيها في باقة واحدة تناسب ميزانيتك
+              واحتياجاتك.
+            </p>
+
+            <div class="custom-package-tags">
+              <span>مرونة كاملة</span>
+              <span>تحكم بالميزانية</span>
+              <span>اختيار حسب الاحتياج</span>
+            </div>
+          </div>
+
+          <a href=" Design your package.html" class="btn btn-primary">
+            ابدأ تصميم الباقة
+          </a>
+        </div>
+      </section>
+
+      <section id="readyPackages" class="ready-packages-section">
+        <div class="section-header">
+          <h2>الباقات الجاهزة</h2>
+        </div>
+
+        <div class="ready-packages-grid">
+          <article class="ready-package-card">
+            <div class="package-badge">اقتصادية</div>
+            <h3>باقة البداية</h3>
+            <p>اختيار مناسب للحفلات البسيطة مع أهم الخدمات الأساسية.</p>
+
+            <ul>
+              <li>قاعة مناسبة</li>
+              <li>ضيافة أساسية</li>
+              <li>تصوير مختصر</li>
+            </ul>
+
+            <div class="package-price">تبدأ من 18,000 ريال</div>
+
+            <div class="ready-package-actions">
+              <a href="Booking.html" class="btn btn-primary">احجز الباقة</a>
+              <a href="#" class="btn btn-secondary">عرض التفاصيل</a>
+            </div>
+          </article>
+
+          <article class="ready-package-card">
+            <div class="package-badge">الأكثر اختيارًا</div>
+            <h3>باقة ليلة المتكاملة</h3>
+            <p>باقة متوازنة تشمل أهم خدمات الزفاف في تجربة واحدة منظمة.</p>
+
+            <ul>
+              <li>قاعة زفاف</li>
+              <li>بوفيه وضيافة</li>
+              <li>تصوير وتنسيق</li>
+            </ul>
+
+            <div class="package-price">تبدأ من 35,000 ريال</div>
+
+            <div class="ready-package-actions">
+              <a href="Booking.html" class="btn btn-primary">احجز الباقة</a>
+              <a href="#" class="btn btn-secondary">عرض التفاصيل</a>
+            </div>
+          </article>
+
+          <article class="ready-package-card">
+            <div class="package-badge">فاخرة</div>
+            <h3>باقة الفخامة</h3>
+            <p>تجربة راقية بتفاصيل أكثر وخدمات موسعة لليلة استثنائية.</p>
+
+            <ul>
+              <li>قاعة فاخرة</li>
+              <li>ضيافة متكاملة</li>
+              <li>تصوير، تجميل، وتنسيق</li>
+            </ul>
+
+            <div class="package-price">تبدأ من 60,000 ريال</div>
+
+            <div class="ready-package-actions">
+              <a href="Booking.html" class="btn btn-primary">احجز الباقة</a>
+              <a href="#" class="btn btn-secondary">عرض التفاصيل</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <section class="features">
+      <div class="feature-item">
+        <span
+          class="material-symbols-rounded"
+          style="font-size: 48px; color: var(--md-sys-color-secondary)"
+          >payments</span
+        >
+        <h3>أسعار واضحة</h3>
+        <p>وداعاً للمفاوضات الطويلة، الأسعار معلنة وبكل شفافية.</p>
+      </div>
+      <div class="feature-item">
+        <span
+          class="material-symbols-rounded"
+          style="font-size: 48px; color: var(--md-sys-color-secondary)"
+          >compare_arrows</span
+        >
+        <h3>مقارنة سهلة</h3>
+        <p>قارني بين الموردين في مكان واحد دون تشتت بين الحسابات.</p>
+      </div>
+      <div class="feature-item">
+        <span
+          class="material-symbols-rounded"
+          style="font-size: 48px; color: var(--md-sys-color-secondary)"
+          >verified_user</span
+        >
+        <h3>حجز آمن</h3>
+        <p>وثقي تعاملاتك بعقود إلكترونية تضمن حقوقك وحقوق المورد.</p>
+      </div>
+    </section>
+
+    <style>
+      li a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col" style="flex: 2">
+          <div class="logo">ليلة</div>
+          <p style="margin-top: 20px; color: #666">
+            المنصة السعودية الأولى لتخطيط الزفاف بكل ذكاء وهدوء.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="join.html">انضم كمورد </a></li>
+            <li>سياسة الخصوصية</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>تواصل معنا</h4>
+          <p>مكة، المملكة العربية السعودية</p>
+          <p>support@laylah.sa</p>
+        </div>
+      </div>
+      <div
+        style="
+          text-align: center;
+          border-top: 1px solid var(--md-sys-color-outline);
+          padding-top: 24px;
+          color: #888;
+          font-size: 0.9rem;
+        "
+      >
+        &copy; 2026 منصة ليلة. جميع الحقوق محفوظة.
+      </div>
+    </footer>
+
+    <script>
+      // دالة للتحقق إذا كان المستخدم يتصفح من جهاز جوال فعلياً
+      function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent,
+        );
+      }
+
+      window.onscroll = function () {
+        const nav = document.querySelector(".navbar");
+        if (window.pageYOffset > 50) {
+          nav.style.boxShadow = "var(--shadow-2)";
+        } else {
+          nav.style.boxShadow = "none";
+        }
+      };
+    </script>
+  </body>
+</html>

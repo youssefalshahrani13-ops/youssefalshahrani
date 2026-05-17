@@ -1,0 +1,2978 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>صممي باقتك | منصة ليلة</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* نظام ألوان Material 3 مخصص للهوية الفاخرة */
+        --md-sys-color-primary: #522b47;
+        --md-sys-color-on-primary: #ffffff;
+        --md-sys-color-secondary: #b19470;
+        --md-sys-color-tertiary: #e8d5d8;
+        --md-sys-color-surface: #fcfaf9;
+        --md-sys-color-on-surface: #1d1b1e;
+        --md-sys-color-outline: #d1c4bc;
+        --md-sys-color-surface-variant: #f4eeed;
+        --md-sys-color-error: #d32f2f;
+
+        /* نظام المسافات 8px */
+        --spacing-xs: 4px;
+        --spacing-s: 8px;
+        --spacing-m: 16px;
+        --spacing-l: 24px;
+        --spacing-xl: 32px;
+
+        /* الحواف والظلال حسب معايير M3 */
+        --radius-full: 100px;
+        --radius-large: 28px;
+        --radius-medium: 16px;
+        --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow-2: 0 8px 16px rgba(0, 0, 0, 0.08);
+
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Tajawal", sans-serif;
+      }
+
+      body {
+        background-color: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+        line-height: 1.6;
+      }
+
+      a,
+      button,
+      input,
+      textarea {
+        transition: var(--transition);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+      }
+
+      .num,
+      input[type="number"] {
+        font-family: "IBM Plex Sans Arabic", "Tajawal", sans-serif;
+      }
+
+      .material-symbols-rounded {
+        font-family: "Material Symbols Rounded";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* --- الأزرار --- */
+      .btn {
+        padding: 12px 32px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+        text-decoration: none;
+      }
+      .btn-primary {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-secondary {
+        background-color: var(--md-sys-color-on-primary);
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--md-sys-color-surface-variant);
+      }
+
+      /* --- صفحة الملف الشخصي --- */
+      .design-package-page {
+        padding: 140px 6% 80px;
+        background: var(--md-sys-color-surface);
+      }
+
+      .section-title {
+        color: var(--md-sys-color-primary);
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin-bottom: var(--spacing-l);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+      }
+
+      .favorite-section {
+        margin-bottom: 60px;
+      }
+
+      .services-fav-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--spacing-m);
+        margin-bottom: 40px;
+      }
+
+      .card {
+        background: var(--md-sys-color-on-primary);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-1);
+        transition: var(--transition);
+        padding: var(--spacing-l);
+      }
+
+      /* محاذاة عنوان الباقات مع الزر */
+      .packages-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      footer {
+        padding: 80px 6% 40px;
+        background: var(--md-sys-color-surface-variant);
+        border-top: 1px solid var(--md-sys-color-outline);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-xl);
+        margin-bottom: 60px;
+      }
+
+      .footer-col h4 {
+        margin-bottom: var(--spacing-l);
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+      }
+
+      .footer-col li {
+        list-style: none;
+        margin-bottom: 12px;
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        cursor: pointer;
+      }
+
+      .footer-col li:hover {
+        color: var(--md-sys-color-primary);
+        opacity: 1;
+      }
+
+      .footer-note {
+        text-align: center;
+        border-top: 1px solid var(--md-sys-color-outline);
+        padding-top: 24px;
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.64;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 1100px) {
+        .design-package-page {
+          padding: 150px 6% 64px;
+        }
+      }
+
+      /* ===== شريط التنقل Navbar ===== */
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6%;
+        background: var(--md-sys-color-surface);
+        backdrop-filter: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        transition: var(--transition);
+      }
+
+      .nav-main-row {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--spacing-l);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-xl);
+        justify-content: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      /* ===== شريط البحث داخل التنقل ===== */
+      .search-bar {
+        background: var(--md-sys-color-surface-variant);
+        border-radius: var(--radius-full);
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        flex: 1;
+        max-width: 420px;
+        transition: var(--transition);
+        cursor: text;
+      }
+
+      .search-bar:focus-within {
+        border-color: var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      /* ===== أزرار تسجيل الدخول وإنشاء الحساب ===== */
+      .nav-auth-btns {
+        display: flex;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-btn {
+        padding: 8px 20px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-btn-signup {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .nav-btn-login {
+        background-color: transparent;
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+
+      /* ===== حاوية الروابط للجوال ===== */
+      .nav-links-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: var(--spacing-s);
+        transition: var(--transition);
+      }
+
+      /* ===== أزرار عامة مستخدمة داخل التنقل ===== */
+      .btn-primary {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+
+      /* ===== جزء الحساب داخل التنقل ===== */
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .logout-custom-btn {
+        font-family: "Tajawal", sans-serif !important;
+        font-weight: 700 !important;
+        border-radius: 50px !important;
+        border: none;
+        cursor: pointer;
+        padding: 10px 24px;
+        height: 43px;
+        min-width: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        transition: all 0.3s ease;
+      }
+
+      .logout-custom-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      .nav-link {
+        font-family: "Tajawal", sans-serif !important;
+        font-weight: 500;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+      }
+
+      /* ===== Responsive الخاص بالتنقل من الصفحة ===== */
+      @media (max-width: 1100px) {
+        .nav-main-row .nav-links {
+          display: none;
+        }
+
+        .nav-links-row {
+          display: flex;
+          overflow-x: auto;
+          scrollbar-width: none;
+          padding: 8px 0 12px;
+        }
+
+        .nav-links-row::-webkit-scrollbar {
+          display: none;
+        }
+
+        .nav-links {
+          gap: var(--spacing-l);
+        }
+
+        .nav-links a {
+          font-size: 0.95rem;
+        }
+
+        .search-bar {
+          max-width: none;
+          min-width: 0;
+        }
+      }
+
+      @media (min-width: 1101px) {
+        .nav-links-row {
+          display: none;
+        }
+      }
+      /* ===== Profile Page Scoped Styles - Refined ===== */
+      .profile-page {
+        width: min(1920px, 100%);
+        margin-inline: auto;
+        display: grid;
+        gap: var(--spacing-xl);
+      }
+
+      .profile-page * {
+        box-sizing: border-box;
+      }
+
+      .profile-page [hidden],
+      .profile-confirm-modal[hidden] {
+        display: none !important;
+      }
+
+      .profile-page .profile-confirm-modal {
+        min-height: 44px;
+        padding: 10px 24px;
+        border-radius: var(--radius-full);
+        font-family: "Tajawal", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 800;
+        line-height: 1;
+        border: 1px solid transparent;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-s);
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .profile-page .profile-confirm-modal {
+        background: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-1);
+      }
+
+      .profile-page .profile-confirm-modal {
+        background: #ffffff;
+        color: var(--md-sys-color-primary);
+        border-color: var(--md-sys-color-outline);
+      }
+
+      .profile-page .profile-confirm-modal {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-1);
+      }
+
+      .profile-login-card,
+      .profile-summary-card,
+      .profile-info-card,
+      .profile-favorites-section,
+      .profile-support-section,
+      .profile-join-card {
+        background: #ffffff;
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-1);
+        padding: var(--spacing-l);
+      }
+
+      .profile-login-card {
+        display: grid;
+        gap: var(--spacing-m);
+        text-align: center;
+        justify-items: center;
+        max-width: 720px;
+        margin-inline: auto;
+        width: 100%;
+      }
+
+      .profile-login-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-secondary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-login-icon .material-symbols-rounded {
+        font-size: 36px;
+      }
+
+      .profile-login-card h1,
+      .profile-summary-text h1,
+      .profile-section-header h2,
+      .profile-join-card h2 {
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .profile-login-card h1 {
+        font-size: clamp(1.45rem, 4vw, 2rem);
+      }
+
+      .profile-login-card p,
+      .profile-summary-note,
+      .profile-subsection-header p,
+      .profile-empty-state p,
+      .profile-support-card p,
+      .profile-join-card p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+      }
+
+      .profile-summary-card {
+        display: grid;
+        gap: var(--spacing-m);
+      }
+
+      .profile-summary-main {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--spacing-m);
+        align-items: center;
+      }
+
+      .profile-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-avatar .material-symbols-rounded {
+        font-size: 46px;
+      }
+
+      .profile-eyebrow {
+        color: var(--md-sys-color-secondary);
+        font-weight: 900;
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .profile-summary-text h1 {
+        font-size: clamp(1.45rem, 4vw, 2rem);
+        margin-bottom: var(--spacing-s);
+      }
+
+      .profile-meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-s);
+      }
+
+      .profile-meta-item,
+      .profile-stat-pill,
+      .profile-badge {
+        min-height: 32px;
+        padding: 6px 12px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .profile-meta-item {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.78;
+      }
+
+      .profile-meta-item .material-symbols-rounded,
+      .profile-detail-item .material-symbols-rounded {
+        color: var(--md-sys-color-secondary);
+        font-size: 20px;
+      }
+
+      .profile-summary-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-m);
+        padding-top: var(--spacing-m);
+        border-top: 1px solid var(--md-sys-color-outline);
+      }
+
+      .profile-stats-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-s);
+      }
+
+      .profile-stat-pill strong {
+        font-family: "IBM Plex Sans Arabic", "Tajawal", sans-serif;
+        font-size: 1rem;
+      }
+
+      .profile-summary-actions,
+      .profile-form-actions,
+      .profile-card-actions,
+      .profile-confirm-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-s);
+      }
+
+      .profile-section-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--spacing-m);
+        margin-bottom: var(--spacing-l);
+      }
+
+      .profile-section-header h2 {
+        font-size: clamp(1.35rem, 3vw, 1.8rem);
+      }
+
+      .profile-soft-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-secondary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        flex-shrink: 0;
+      }
+
+      .profile-form {
+        display: grid;
+        gap: var(--spacing-m);
+      }
+
+      .profile-form-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-m);
+      }
+
+      .profile-field {
+        display: grid;
+        gap: var(--spacing-s);
+      }
+
+      .profile-field span {
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+      }
+
+      .profile-field input,
+      .profile-field select {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1.5px solid var(--md-sys-color-outline);
+        background: #ffffff;
+        color: var(--md-sys-color-on-surface);
+        outline: none;
+        font-family: "Tajawal", sans-serif;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .profile-field input:focus,
+      .profile-field select:focus {
+        border-color: var(--md-sys-color-primary);
+        box-shadow: 0 0 0 4px rgba(82, 43, 71, 0.12);
+      }
+
+      .profile-field input[readonly] {
+        background: var(--md-sys-color-surface-variant);
+        color: rgba(29, 27, 30, 0.68);
+      }
+      .profile-field input:disabled,
+      .profile-field select:disabled {
+        background: var(--md-sys-color-surface-variant);
+        color: rgba(29, 27, 30, 0.58);
+        border-color: var(--md-sys-color-outline);
+        opacity: 0.78;
+        cursor: not-allowed;
+      }
+
+      .profile-field input:disabled + small,
+      .profile-field select:disabled + small {
+        opacity: 0.5;
+      }
+
+      .profile-info-card:has(input:disabled) {
+        background: rgba(255, 255, 255, 0.72);
+      }
+      .profile-field small {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.6;
+        font-size: 0.85rem;
+      }
+
+      .profile-form-feedback {
+        display: none;
+        padding: 12px 16px;
+        border-radius: var(--radius-medium);
+        font-weight: 800;
+      }
+
+      .profile-form-feedback.show {
+        display: block;
+      }
+
+      .profile-form-feedback.success {
+        background: rgba(46, 125, 50, 0.1);
+        color: #2e7d32;
+        border: 1px solid rgba(46, 125, 50, 0.28);
+      }
+
+      .profile-form-feedback.error {
+        background: rgba(211, 47, 47, 0.1);
+        color: #d32f2f;
+        border: 1px solid rgba(211, 47, 47, 0.28);
+      }
+
+      .profile-favorites-section,
+      .profile-support-section {
+        display: grid;
+        gap: var(--spacing-xl);
+      }
+
+      .profile-subsection {
+        display: grid;
+        gap: var(--spacing-m);
+      }
+
+      .profile-subsection + .profile-subsection {
+        padding-top: var(--spacing-xl);
+        border-top: 1px solid var(--md-sys-color-outline);
+      }
+
+      .profile-subsection-header {
+        display: grid;
+        gap: var(--spacing-m);
+      }
+
+      .profile-subsection-header h3 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.25rem;
+        font-weight: 900;
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .profile-cards-grid,
+      .profile-support-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-m);
+      }
+
+      .profile-service-card,
+      .profile-package-card,
+      .profile-support-card {
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        background: #ffffff;
+        box-shadow: var(--shadow-1);
+        padding: var(--spacing-l);
+        transition: var(--transition);
+      }
+
+      .profile-service-card:hover,
+      .profile-package-card:hover,
+      .profile-support-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-1);
+      }
+
+      .profile-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--spacing-m);
+        margin-bottom: var(--spacing-m);
+      }
+
+      .profile-card-title {
+        color: var(--md-sys-color-primary);
+        font-size: 1.1rem;
+        font-weight: 900;
+        margin-bottom: 4px;
+      }
+
+      .profile-card-subtitle {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        font-weight: 700;
+      }
+
+      .profile-badge {
+        background: rgba(46, 125, 50, 0.1);
+        color: #2e7d32;
+        opacity: 1;
+      }
+
+      .profile-card-details {
+        display: grid;
+        gap: var(--spacing-s);
+        margin-bottom: var(--spacing-m);
+      }
+
+      .profile-detail-item {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        font-weight: 700;
+      }
+
+      .profile-card-actions {
+        padding-top: var(--spacing-m);
+        border-top: 1px solid var(--md-sys-color-outline);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-s);
+        align-items: center;
+      }
+
+      .profile-card-actions .btn,
+      .profile-card-actions .btn-text,
+      .profile-card-actions button,
+      .profile-card-actions a {
+        width: 100%;
+        min-height: 48px;
+        padding: 10px 16px;
+        border-radius: var(--radius-full);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-s);
+        text-align: center;
+        line-height: 1.2;
+        white-space: normal;
+      }
+
+      .profile-card-actions .material-symbols-rounded {
+        flex-shrink: 0;
+        font-size: 22px;
+      }
+
+      .profile-card-actions .profile-btn-text-danger {
+        background: transparent;
+        color: var(--md-sys-color-error);
+        border: none;
+        box-shadow: none;
+      }
+      .profile-card-actions .profile-btn-text-danger {
+        justify-content: center;
+        text-align: center;
+      }
+      .profile-card-actions .profile-btn-text-danger .material-symbols-rounded {
+        color: var(--md-sys-color-error);
+      }
+
+      .profile-card-actions .profile-btn-text-danger:hover {
+        background: rgba(211, 47, 47, 0.08);
+        color: var(--md-sys-color-error);
+        box-shadow: none;
+        transform: none;
+      }
+      .btn-text {
+        min-height: 44px;
+        border: none;
+        background: transparent;
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+        padding: 8px 12px;
+        border-radius: var(--radius-full);
+        justify-content: center;
+        text-align: center;
+      }
+
+      .btn-text:hover {
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .profile-empty-state {
+        border: 1px dashed var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        background: var(--md-sys-color-surface-variant);
+        padding: var(--spacing-xl);
+        text-align: center;
+        display: grid;
+        justify-items: center;
+        gap: var(--spacing-s);
+      }
+
+      .profile-empty-state > .material-symbols-rounded {
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-full);
+        background: #ffffff;
+        color: var(--md-sys-color-secondary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+      }
+
+      .profile-empty-state h4 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.12rem;
+        font-weight: 900;
+      }
+
+      .profile-support-card {
+        display: grid;
+        gap: var(--spacing-s);
+      }
+
+      .profile-support-card > .material-symbols-rounded {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-secondary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+      }
+
+      .profile-support-card h3 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.1rem;
+        font-weight: 900;
+      }
+
+      .profile-card-link {
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+        text-decoration: none;
+        margin-top: var(--spacing-xs);
+      }
+
+      .profile-card-link:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      .profile-join-card {
+        display: grid;
+        gap: var(--spacing-l);
+        align-items: center;
+      }
+
+      .profile-confirm-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 2500;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-l);
+      }
+
+      .profile-confirm-modal.open {
+        display: flex;
+      }
+
+      .profile-confirm-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(29, 27, 30, 0.42);
+      }
+
+      .profile-confirm-card {
+        width: min(440px, 100%);
+        position: relative;
+        z-index: 1;
+        background: #ffffff;
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-large);
+        box-shadow: var(--shadow-2);
+        padding: var(--spacing-xl);
+        text-align: center;
+        display: grid;
+        gap: var(--spacing-m);
+      }
+
+      .profile-modal-close {
+        position: absolute;
+        inset-block-start: var(--spacing-m);
+        inset-inline-end: var(--spacing-m);
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-full);
+        border: 1px solid var(--md-sys-color-outline);
+        background: #ffffff;
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-confirm-icon {
+        width: 56px;
+        height: 56px;
+        margin-inline: auto;
+        border-radius: var(--radius-full);
+        background: rgba(211, 47, 47, 0.1);
+        color: #d32f2f;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+      }
+
+      .profile-confirm-card h2 {
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+      }
+
+      .profile-confirm-card p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+      }
+      /* توحيد محاذاة كل أزرار صفحة البروفايل */
+      .profile-page .btn,
+      .profile-page .btn-primary,
+      .profile-page .btn-secondary,
+      .profile-page .btn-text,
+      .profile-confirm-modal .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: var(--spacing-s);
+        line-height: 1.2;
+      }
+
+      .profile-page .btn .material-symbols-rounded,
+      .profile-page .btn-primary .material-symbols-rounded,
+      .profile-page .btn-secondary .material-symbols-rounded,
+      .profile-page .btn-text .material-symbols-rounded,
+      .profile-confirm-modal .btn .material-symbols-rounded {
+        flex-shrink: 0;
+        line-height: 1;
+      }
+      @media (min-width: 640px) {
+        .profile-form-grid,
+        .profile-cards-grid,
+        .profile-support-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .profile-subsection-header {
+          grid-template-columns: 1fr auto;
+          align-items: center;
+        }
+
+        .profile-join-card {
+          grid-template-columns: 1fr auto;
+        }
+      }
+
+      @media (min-width: 980px) {
+        .profile-summary-card {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-form-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .profile-support-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 520px) {
+        .profile-summary-main {
+          grid-template-columns: 1fr;
+          text-align: center;
+          justify-items: center;
+        }
+
+        .profile-meta-row,
+        .profile-summary-footer,
+        .profile-summary-actions,
+        .profile-form-actions,
+        .profile-confirm-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .profile-stats-grid {
+          width: 100%;
+        }
+
+        .profile-page .btn,
+        .profile-confirm-modal .btn {
+          width: 100%;
+        }
+
+        .profile-section-header {
+          align-items: center;
+        }
+      }
+      @media (max-width: 800px) {
+        .profile-card-actions {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-card-actions .btn,
+        .profile-card-actions .btn-text,
+        .profile-card-actions button,
+        .profile-card-actions a {
+          min-height: 52px;
+          font-size: 0.95rem;
+          padding: 12px 14px;
+        }
+      }
+
+      /* --- شريط التنقل (Navbar) --- */
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6%;
+        background: var(--md-sys-color-surface);
+        backdrop-filter: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        transition: var(--transition);
+      }
+
+      .nav-main-row {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--spacing-l);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-xl);
+        justify-content: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      .search-bar {
+        background: var(--md-sys-color-surface-variant);
+        border-radius: var(--radius-full);
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        flex: 1;
+        max-width: 420px;
+        transition: var(--transition);
+        cursor: text;
+      }
+
+      .search-bar:focus-within {
+        border-color: var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      /* أزرار تسجيل الدخول وإنشاء حساب في الناف بار */
+      .nav-auth-btns {
+        display: flex;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-btn {
+        padding: 8px 20px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-btn-signup {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .nav-btn-login {
+        background-color: transparent;
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+      /* ===== User Dropdown Menu ===== */
+      .user-menu {
+        position: relative;
+        align-items: center;
+      }
+      .user-menu-trigger.icon-only {
+        width: 48px;
+        height: 48px;
+        min-height: 48px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: var(--radius-full);
+        transition: var(--transition);
+        box-shadow: none;
+      }
+
+      .user-menu-trigger.icon-only:hover {
+        background: var(--md-sys-color-surface-variant);
+        transform: none;
+        box-shadow: none;
+      }
+
+      .user-menu-trigger.icon-only .user-profile-icon {
+        font-size: 42px;
+        color: var(--md-sys-color-primary);
+        font-variation-settings: "FILL" 0;
+      }
+      .user-dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        min-width: 220px;
+        background: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-2);
+        overflow: hidden;
+        display: none;
+        z-index: 1200;
+      }
+
+      .user-dropdown.open {
+        display: block;
+      }
+
+      .user-dropdown-item {
+        width: 100%;
+        min-height: 54px;
+        padding: 12px 16px;
+        border: none;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        background: transparent;
+        color: var(--md-sys-color-on-surface);
+        text-decoration: none;
+        font-family: "Tajawal", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        text-align: right;
+        cursor: pointer;
+      }
+
+      .user-dropdown-item:last-child {
+        border-bottom: none;
+      }
+
+      .user-dropdown-item:hover {
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+      }
+
+      .user-dropdown-item .material-symbols-rounded {
+        color: var(--md-sys-color-primary);
+        font-size: 22px;
+      }
+
+      .user-dropdown-item.danger {
+        color: var(--md-sys-color-error, #d32f2f);
+      }
+
+      .user-dropdown-item.danger .material-symbols-rounded {
+        color: var(--md-sys-color-error, #d32f2f);
+      }
+      /* حاوية الروابط للسحب في الجوال */
+      .nav-links-row {
+        width: 100%;
+        display: none;
+        justify-content: center;
+        padding-bottom: var(--spacing-s);
+        transition: var(--transition);
+      }
+      /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+      @media (max-width: 1100px) {
+        .nav-main-row .nav-links {
+          display: none;
+        }
+        /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+        @media (max-width: 1100px) {
+          .nav-main-row .nav-links {
+            display: none;
+          }
+
+          .nav-links-row {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 8px 0 12px;
+          }
+
+          .nav-links-row::-webkit-scrollbar {
+            display: none;
+          }
+
+          .nav-links-row .nav-links {
+            display: flex;
+            gap: var(--spacing-l);
+            min-width: max-content;
+          }
+
+          .nav-links-row .nav-links a {
+            font-size: 0.95rem;
+          }
+
+          .search-bar {
+            max-width: none;
+            min-width: 0;
+          }
+          @media (min-width: 1101px) {
+            .nav-links-row {
+              display: none;
+            }
+
+            .promo-banner-section {
+              padding: 116px 6% 0;
+            }
+          }
+        }
+        @media (max-width: 768px) {
+          .user-dropdown {
+            left: 0;
+            min-width: 200px;
+          }
+
+          .user-menu-trigger {
+            padding-inline: 14px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      /* ===== Mobile navbar layout: logo right, search beside auth left ===== */
+      @media (max-width: 768px) {
+        .nav-main-row {
+          display: grid;
+          grid-template-columns: auto 1fr auto auto;
+          align-items: center;
+          column-gap: var(--spacing-s);
+        }
+
+        .logo {
+          grid-column: 1;
+          justify-self: start;
+          height: 48px;
+          display: inline-flex;
+          align-items: center;
+          line-height: 1;
+        }
+
+        .search-bar {
+          grid-column: 3;
+          justify-self: end;
+          width: 44px;
+          height: 48px;
+          min-width: 44px;
+          max-width: 44px;
+          padding: 0;
+          margin: 0;
+          border: none;
+          background: transparent;
+          border-radius: 0;
+          box-shadow: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+
+        .search-bar input {
+          display: none;
+        }
+
+        .search-bar .material-symbols-rounded {
+          width: 44px;
+          height: 48px;
+          margin: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          line-height: 1;
+          color: var(--md-sys-color-primary);
+        }
+
+        .nav-actions {
+          grid-column: 4;
+          justify-self: end;
+          align-self: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-main-row">
+        <a href="index.html" class="logo"> ليلة </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="Services.html">الخدمات</a></li>
+          <li><a href="Packages.html" class="active">الباقات</a></li>
+          <li><a href="Booking.html">الحجوزات</a></li>
+        </ul>
+
+        <div class="search-bar" id="searchBar">
+          <span class="material-symbols-rounded" id="searchIcon">search</span>
+          <input type="text" placeholder="ابحثي ..." id="searchInput" />
+        </div>
+
+        <script>
+          document
+            .getElementById("searchInput")
+            .addEventListener("keypress", function (event) {
+              if (event.key === "Enter") {
+                window.location.href = "search-results.html";
+              }
+            });
+
+          document
+            .getElementById("searchIcon")
+            .addEventListener("click", function () {
+              window.location.href = "search-results.html";
+            });
+        </script>
+
+        <div id="authSection" class="nav-actions">
+          <div
+            id="guestLinks"
+            style="display: flex; gap: 8px; align-items: center"
+          >
+            <a href="signup.html" class="nav-btn nav-btn-signup">انشاء حساب</a>
+            <a href="login.html" class="nav-btn nav-btn-login">دخول</a>
+          </div>
+
+          <div id="userLinks" class="user-menu" style="display: none">
+            <button
+              class="user-menu-trigger icon-only"
+              id="userMenuTrigger"
+              type="button"
+              aria-label="قائمة الحساب"
+            >
+              <span class="material-symbols-rounded user-profile-icon"
+                >account_circle</span
+              >
+            </button>
+
+            <div class="user-dropdown" id="userDropdown">
+              <a href="Profile.html" class="user-dropdown-item">
+                <span class="material-symbols-rounded">account_circle</span>
+                <span>الملف الشخصي</span>
+              </a>
+
+              <button
+                type="button"
+                class="user-dropdown-item danger"
+                onclick="logout()"
+              >
+                <span class="material-symbols-rounded">logout</span>
+                <span>تسجيل الخروج</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* تطبيق الخط والحواف الدائرية بدقة */
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        /* زر تسجيل الخروج المصحح */
+        .logout-custom-btn {
+          font-family:
+            "Tajawal", sans-serif !important; /* التأكد من نوع الخط */
+          font-weight: 700 !important;
+          border-radius: 50px !important; /* الحواف الدائرية المطلوبة */
+          border: none;
+          cursor: pointer;
+          padding: 10px 24px;
+          height: 43px;
+          min-width: 130px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--md-sys-color-primary);
+          color: var(--md-sys-color-on-primary);
+          transition: all 0.3s ease;
+        }
+
+        .logout-custom-btn:hover {
+          opacity: 0.9;
+          transform: translateY(-1px);
+        }
+
+        /* التأكد من خط "تسجيل الدخول" للزائر */
+        .nav-link {
+          font-family: "Tajawal", sans-serif !important;
+          font-weight: 500;
+          color: var(--md-sys-color-primary);
+          text-decoration: none;
+        }
+      </style>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const userName = localStorage.getItem("userName");
+          const guestLinks = document.getElementById("guestLinks");
+          const userLinks = document.getElementById("userLinks");
+
+          if (userName) {
+            guestLinks.style.display = "none";
+            userLinks.style.display = "flex";
+          } else {
+            guestLinks.style.display = "flex";
+            userLinks.style.display = "none";
+          }
+          const userMenuTrigger = document.getElementById("userMenuTrigger");
+          const userDropdown = document.getElementById("userDropdown");
+
+          if (userMenuTrigger && userDropdown) {
+            userMenuTrigger.addEventListener("click", (event) => {
+              event.stopPropagation();
+              userDropdown.classList.toggle("open");
+            });
+
+            document.addEventListener("click", () => {
+              userDropdown.classList.remove("open");
+            });
+
+            userDropdown.addEventListener("click", (event) => {
+              event.stopPropagation();
+            });
+          }
+        });
+
+        function logout() {
+          if (confirm("هل متأكد من تسجيل الخروج؟")) {
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userPhone");
+            window.location.reload();
+          }
+        }
+      </script>
+
+      <div class="nav-links-row">
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="Services.html">الخدمات</a></li>
+          <li><a href="Packages.html">الباقات</a></li>
+          <li><a href="Booking.html">حجوزاتي</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="design-package-page">
+      <div class="profile-page">
+        <section class="profile-login-card" id="profileLoginGate" hidden>
+          <span class="profile-login-icon">
+            <span class="material-symbols-rounded" aria-hidden="true"
+              >lock_person</span
+            >
+          </span>
+
+          <div>
+            <p class="profile-eyebrow">ملفي في ليلة</p>
+            <h1>يرجى تسجيل الدخول لعرض ملفك الشخصي</h1>
+            <p>
+              سجّلي دخولك لمتابعة بياناتك، باقاتك المحفوظة، وخدماتك المفضلة.
+            </p>
+          </div>
+
+          <a class="btn btn-primary" href="login.html">
+            <span class="material-symbols-rounded" aria-hidden="true"
+              >login</span
+            >
+            تسجيل الدخول
+          </a>
+        </section>
+        <!-- Profile Summary -->
+        <section
+          class="profile-summary-card"
+          data-profile-private
+          aria-labelledby="profileSummaryTitle"
+        >
+          <div class="profile-summary-main">
+            <div class="profile-avatar">
+              <span class="material-symbols-rounded" aria-hidden="true">
+                account_circle
+              </span>
+            </div>
+
+            <div class="profile-summary-text">
+              <p class="profile-eyebrow">ملفي في ليلة</p>
+              <h1 id="profileSummaryTitle">
+                مرحبًا، <span id="profileDisplayName"></span>
+              </h1>
+            </div>
+          </div>
+        </section>
+
+        <!-- Personal Information -->
+        <section
+          class="profile-info-card"
+          data-profile-private
+          id="profileInfoSection"
+          aria-labelledby="profileInfoTitle"
+        >
+          <div class="profile-section-header">
+            <div>
+              <p class="profile-eyebrow">بيانات الحساب</p>
+              <h2 id="profileInfoTitle">المعلومات الشخصية</h2>
+            </div>
+            <span
+              class="profile-soft-icon material-symbols-rounded"
+              aria-hidden="true"
+              >manage_accounts</span
+            >
+          </div>
+
+          <form class="profile-form" id="profileInfoForm" novalidate>
+            <div class="profile-form-grid">
+              <label class="profile-field">
+                <span>الاسم الأول</span>
+                <input
+                  type="text"
+                  id="profileFirstName"
+                  autocomplete="given-name"
+                  required
+                />
+              </label>
+
+              <label class="profile-field">
+                <span>الاسم الأخير</span>
+                <input
+                  type="text"
+                  id="profileLastName"
+                  autocomplete="family-name"
+                />
+              </label>
+
+              <label class="profile-field">
+                <span>رقم الجوال</span>
+                <input
+                  class="num"
+                  type="tel"
+                  id="profilePhone"
+                  autocomplete="tel"
+                  required
+                />
+              </label>
+
+              <label class="profile-field">
+                <span>البريد الإلكتروني</span>
+                <input type="email" id="profileEmail" autocomplete="email" />
+              </label>
+
+              <label class="profile-field">
+                <span>الجنس</span>
+                <select id="profileGender">
+                  <option value="">اختاري</option>
+                  <option value="أنثى">أنثى</option>
+                  <option value="ذكر">ذكر</option>
+                </select>
+              </label>
+
+              <label class="profile-field">
+                <span>المدينة</span>
+                <input
+                  type="text"
+                  id="profileCity"
+                  autocomplete="address-level2"
+                />
+              </label>
+
+              <label class="profile-field">
+                <span>الحي</span>
+                <input
+                  type="text"
+                  id="profileDistrict"
+                  autocomplete="address-line2"
+                />
+              </label>
+            </div>
+
+            <div
+              class="profile-form-feedback"
+              id="profileFormFeedback"
+              role="status"
+              aria-live="polite"
+            ></div>
+
+            <div class="profile-form-actions">
+              <button class="btn btn-primary" type="button" id="editProfileBtn">
+                <span class="material-symbols-rounded" aria-hidden="true"
+                  >edit</span
+                >
+                تعديل البيانات
+              </button>
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+                id="saveProfileBtn"
+                hidden
+              >
+                <span class="material-symbols-rounded" aria-hidden="true"
+                  >save</span
+                >
+                حفظ التغييرات
+              </button>
+
+              <button
+                class="btn btn-secondary"
+                type="button"
+                id="cancelEditProfileBtn"
+                hidden
+              >
+                <span class="material-symbols-rounded" aria-hidden="true"
+                  >close</span
+                >
+                إلغاء
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Favorites -->
+        <section
+          class="profile-favorites-section"
+          data-profile-private
+          aria-labelledby="profileFavoritesTitle"
+        >
+          <div class="profile-section-header">
+            <div>
+              <p class="profile-eyebrow">اختياراتك</p>
+              <h2 id="profileFavoritesTitle">المفضلة والباقات المحفوظة</h2>
+            </div>
+            <span
+              class="profile-soft-icon material-symbols-rounded"
+              aria-hidden="true"
+              >favorite</span
+            >
+          </div>
+
+          <!-- Favorite Services -->
+          <div class="profile-subsection">
+            <div class="profile-subsection-header">
+              <div>
+                <h3>الخدمات المفضلة</h3>
+                <p>الخدمات التي حفظتيها للمقارنة والعودة إليها لاحقًا.</p>
+              </div>
+              <a class="btn btn-secondary" href="Services.html">
+                <span class="material-symbols-rounded" aria-hidden="true"
+                  >travel_explore</span
+                >
+                استكشاف الخدمات
+              </a>
+            </div>
+
+            <div class="profile-cards-grid" id="favoriteServicesGrid"></div>
+
+            <div class="profile-empty-state" id="favoriteServicesEmpty">
+              <span class="material-symbols-rounded" aria-hidden="true"
+                >favorite</span
+              >
+              <h4>لم تضيفي أي خدمة للمفضلة بعد</h4>
+              <p>
+                استكشفي الخدمات واحفظي الخيارات المناسبة لك للمقارنة لاحقًا.
+              </p>
+              <a class="btn btn-primary" href="Services.html"
+                >استكشاف الخدمات</a
+              >
+            </div>
+          </div>
+
+          <!-- Saved Packages -->
+          <div class="profile-subsection">
+            <div class="profile-subsection-header">
+              <div>
+                <h3>الباقات المحفوظة</h3>
+                <p>تابعي تصميماتك السابقة أو عدّليها قبل إتمام الحجز.</p>
+              </div>
+              <a href="Design your package.html" class="btn btn-primary">
+                <span class="material-symbols-rounded">add</span>
+                تصميم باقة جديدة
+              </a>
+            </div>
+
+            <div class="profile-cards-grid" id="savedPackagesGrid"></div>
+
+            <div class="profile-empty-state" id="savedPackagesEmpty">
+              <span class="material-symbols-rounded" aria-hidden="true"
+                >inventory_2</span
+              >
+              <h4>لا توجد باقات محفوظة حاليًا</h4>
+              <p>ابدئي بتصميم باقة تناسب ميزانيتك وخدمات ليلة العمر.</p>
+              <a class="btn btn-primary" href="Design your package.html"
+                >تصميم باقة جديدة</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Support -->
+        <section
+          class="profile-support-section"
+          aria-labelledby="profileSupportTitle"
+        >
+          <div class="profile-section-header">
+            <div>
+              <p class="profile-eyebrow">المساعدة</p>
+              <h2 id="profileSupportTitle">الدعم الفني</h2>
+            </div>
+            <span
+              class="profile-soft-icon material-symbols-rounded"
+              aria-hidden="true"
+              >support_agent</span
+            >
+          </div>
+
+          <div class="profile-support-grid">
+            <article class="profile-support-card">
+              <span class="material-symbols-rounded" aria-hidden="true"
+                >help</span
+              >
+              <h3>الأسئلة الشائعة</h3>
+              <p>إجابات سريعة حول الحجز، الباقات، وآلية حفظ الخدمات.</p>
+              <a class="profile-card-link" href="#">عرض الأسئلة</a>
+            </article>
+
+            <article class="profile-support-card">
+              <span class="material-symbols-rounded" aria-hidden="true"
+                >chat</span
+              >
+              <h3>تواصل مع الدعم</h3>
+              <p>احتجتِ مساعدة؟ فريق ليلة جاهز لمساعدتك في أي خطوة.</p>
+              <a class="profile-card-link" href="mailto:support@laylah.sa"
+                >مراسلة الدعم</a
+              >
+            </article>
+
+            <article class="profile-support-card">
+              <span class="material-symbols-rounded" aria-hidden="true"
+                >bug_report</span
+              >
+              <h3>الإبلاغ عن مشكلة</h3>
+              <p>أرسلي لنا أي مشكلة واجهتك لتحسين تجربتك داخل المنصة.</p>
+              <a
+                class="profile-card-link"
+                href="mailto:support@laylah.sa?subject=بلاغ مشكلة في منصة ليلة"
+                >إرسال بلاغ</a
+              >
+            </article>
+          </div>
+        </section>
+
+        <!-- Join CTA -->
+        <section class="profile-join-card" aria-labelledby="profileJoinTitle">
+          <div>
+            <p class="profile-eyebrow">للموردين</p>
+            <h2 id="profileJoinTitle">هل تقدم خدمات زفاف؟</h2>
+            <p>
+              انضم إلى موردي منصة ليلة واعرض خدماتك للعملاء المهتمين بتجربة زفاف
+              موثوقة.
+            </p>
+          </div>
+
+          <a class="btn btn-primary" href="join.html">
+            <span class="material-symbols-rounded" aria-hidden="true"
+              >storefront</span
+            >
+            انضم كمورد
+          </a>
+        </section>
+      </div>
+
+      <div
+        class="profile-confirm-modal"
+        data-profile-private
+        id="deletePackageModal"
+        aria-hidden="true"
+        hidden
+      >
+        <div class="profile-confirm-backdrop" data-close-modal></div>
+        <div
+          class="profile-confirm-card"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="deletePackageTitle"
+        >
+          <button
+            class="profile-modal-close"
+            type="button"
+            data-close-modal
+            aria-label="إغلاق"
+          >
+            <span class="material-symbols-rounded" aria-hidden="true"
+              >close</span
+            >
+          </button>
+          <span
+            class="profile-confirm-icon material-symbols-rounded"
+            aria-hidden="true"
+            >delete</span
+          >
+          <h2 id="deletePackageTitle">حذف الباقة؟</h2>
+          <p>
+            سيتم حذف هذه الباقة من قائمتك المحفوظة. لا يمكن التراجع عن هذه
+            الخطوة.
+          </p>
+          <div class="profile-confirm-actions">
+            <button class="btn btn-secondary" type="button" data-close-modal>
+              إلغاء
+            </button>
+            <button
+              class="btn profile-btn-danger"
+              type="button"
+              id="confirmDeletePackageBtn"
+            >
+              حذف الباقة
+            </button>
+          </div>
+        </div>
+      </div>
+      <script type="module">
+        import {
+          initializeApp,
+          getApps,
+        } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import {
+          getDatabase,
+          ref,
+          get,
+          child,
+          set,
+          remove,
+        } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyC5LqK5nYvhmgVLB8utjPjLQdNQMy_qe2c",
+          authDomain: "comments-test01.firebaseapp.com",
+          databaseURL: "https://comments-test01-default-rtdb.firebaseio.com",
+          projectId: "comments-test01",
+          storageBucket: "comments-test01.firebasestorage.app",
+          messagingSenderId: "1061900134848",
+          appId: "1:1061900134848:web:a740fa25f3a27a36be0025",
+        };
+
+        const app = getApps().length
+          ? getApps()[0]
+          : initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const dbRef = ref(db);
+
+        const STORAGE_KEYS = {
+          packages: "laylah_saved_packages_list",
+          currentDesign: "laylah_current_design_state",
+          favoriteServices: [
+            "laylah_favorite_services",
+            "laylah_favorite_services_list",
+            "favoriteServices",
+            "favorite_services",
+          ],
+        };
+
+        const state = {
+          userPhone: localStorage.getItem("userPhone") || "",
+          userName: localStorage.getItem("userName") || "",
+          user: null,
+          packages: [],
+          favoriteServices: [],
+          pendingDeleteIndex: null,
+        };
+
+        const els = {
+          loginGate: document.getElementById("profileLoginGate"),
+          privateSections: document.querySelectorAll("[data-profile-private]"),
+
+          displayName: document.getElementById("profileDisplayName"),
+
+          form: document.getElementById("profileInfoForm"),
+          feedback: document.getElementById("profileFormFeedback"),
+          editProfileBtn: document.getElementById("editProfileBtn"),
+          saveProfileBtn: document.getElementById("saveProfileBtn"),
+          cancelEditProfileBtn: document.getElementById("cancelEditProfileBtn"),
+          firstName: document.getElementById("profileFirstName"),
+          lastName: document.getElementById("profileLastName"),
+          phone: document.getElementById("profilePhone"),
+          email: document.getElementById("profileEmail"),
+          gender: document.getElementById("profileGender"),
+          city: document.getElementById("profileCity"),
+          district: document.getElementById("profileDistrict"),
+
+          favoriteServicesGrid: document.getElementById("favoriteServicesGrid"),
+          favoriteServicesEmpty: document.getElementById(
+            "favoriteServicesEmpty",
+          ),
+          savedPackagesGrid: document.getElementById("savedPackagesGrid"),
+          savedPackagesEmpty: document.getElementById("savedPackagesEmpty"),
+
+          deleteModal: document.getElementById("deletePackageModal"),
+          confirmDeleteBtn: document.getElementById("confirmDeletePackageBtn"),
+        };
+
+        document.addEventListener("DOMContentLoaded", initProfilePage);
+
+        async function initProfilePage() {
+          bindEvents();
+          updateProfileVisibility();
+          setProfileEditMode(false);
+
+          if (!isLoggedIn()) {
+            clearPrivateDisplays();
+            return;
+          }
+
+          state.favoriteServices = loadFavoriteServices();
+          state.packages = loadSavedPackages();
+
+          renderFavoriteServices();
+          renderSavedPackages();
+          updateCounters();
+
+          await loadUserProfile();
+          await syncPackagesFromFirebase();
+        }
+
+        function isLoggedIn() {
+          return Boolean(
+            localStorage.getItem("userPhone") &&
+            localStorage.getItem("userName"),
+          );
+        }
+
+        function updateProfileVisibility() {
+          const loggedIn = isLoggedIn();
+
+          if (els.loginGate) {
+            els.loginGate.hidden = loggedIn;
+          }
+
+          els.privateSections.forEach((section) => {
+            section.hidden = !loggedIn;
+          });
+
+          if (!loggedIn && els.deleteModal) {
+            closeDeleteModal();
+          }
+        }
+
+        function clearPrivateDisplays() {
+          state.packages = [];
+          state.favoriteServices = [];
+
+          if (els.savedPackagesGrid) els.savedPackagesGrid.innerHTML = "";
+          if (els.favoriteServicesGrid) els.favoriteServicesGrid.innerHTML = "";
+
+          if (els.savedPackagesEmpty) els.savedPackagesEmpty.hidden = true;
+          if (els.favoriteServicesEmpty)
+            els.favoriteServicesEmpty.hidden = true;
+
+          if (els.savedPackagesCount) els.savedPackagesCount.textContent = "0";
+          if (els.favoriteServicesCount)
+            els.favoriteServicesCount.textContent = "0";
+        }
+        function setProfileEditMode(isEditing) {
+          const fields = [
+            els.firstName,
+            els.lastName,
+            els.phone,
+            els.email,
+            els.gender,
+            els.city,
+            els.district,
+          ];
+
+          fields.forEach((field) => {
+            if (!field) return;
+            field.disabled = !isEditing;
+          });
+
+          if (els.editProfileBtn) {
+            els.editProfileBtn.hidden = isEditing;
+          }
+
+          if (els.saveProfileBtn) {
+            els.saveProfileBtn.hidden = !isEditing;
+          }
+          if (els.cancelEditProfileBtn) {
+            els.cancelEditProfileBtn.hidden = !isEditing;
+          }
+        }
+        function bindEvents() {
+          els.form?.addEventListener("submit", handleSaveProfile);
+          els.editProfileBtn?.addEventListener("click", () => {
+            setProfileEditMode(true);
+            els.cancelEditProfileBtn?.addEventListener("click", () => {
+              fillUserInterface();
+              setProfileEditMode(false);
+            });
+          });
+          document.querySelectorAll("[data-close-modal]").forEach((btn) => {
+            btn.addEventListener("click", closeDeleteModal);
+          });
+
+          els.confirmDeleteBtn?.addEventListener("click", confirmDeletePackage);
+
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeDeleteModal();
+          });
+        }
+
+        async function loadUserProfile() {
+          try {
+            const snapshot = await get(
+              child(dbRef, `users/${state.userPhone}`),
+            );
+
+            state.user = snapshot.exists()
+              ? snapshot.val()
+              : {
+                  phone: state.userPhone,
+                  name: state.userName,
+                };
+
+            fillUserInterface();
+          } catch (error) {
+            showFeedback("تعذر تحميل بيانات الحساب. حاولي مرة أخرى.", "error");
+            console.error(error);
+          }
+        }
+
+        function fillUserInterface() {
+          const user = state.user || {};
+          const fullName =
+            user.name ||
+            `${user.firstName || ""} ${user.lastName || ""}`.trim() ||
+            state.userName;
+          const nameParts = fullName.split(" ").filter(Boolean);
+
+          const firstName = user.firstName || nameParts[0] || "";
+          const lastName = user.lastName || nameParts.slice(1).join(" ") || "";
+
+          els.displayName.textContent = fullName || "مستخدم ليلة";
+
+          els.firstName.value = firstName;
+          els.lastName.value = lastName;
+          els.phone.value = user.phone || state.userPhone;
+          els.email.value = user.email || "";
+          els.gender.value = user.gender || "";
+          els.city.value = user.city || "";
+          els.district.value = user.district || "";
+        }
+
+        async function handleSaveProfile(event) {
+          event.preventDefault();
+
+          if (!isLoggedIn()) {
+            updateProfileVisibility();
+            return;
+          }
+
+          const oldPhone = state.userPhone;
+          const firstName = els.firstName.value.trim();
+          const lastName = els.lastName.value.trim();
+          const phone = els.phone.value.trim();
+
+          if (!firstName) {
+            showFeedback("يرجى إدخال الاسم الأول.", "error");
+            els.firstName.focus();
+            return;
+          }
+
+          if (!isValidSaudiPhone(phone)) {
+            showFeedback(
+              "رقم الجوال غير صحيح. استخدمي الصيغة 05xxxxxxxx.",
+              "error",
+            );
+            els.phone.focus();
+            return;
+          }
+
+          try {
+            // لو المستخدم غير رقم الجوال، نتأكد أن الرقم الجديد غير مستخدم
+            if (phone !== oldPhone) {
+              const existingSnapshot = await get(
+                child(dbRef, `users/${phone}`),
+              );
+
+              if (existingSnapshot.exists()) {
+                showFeedback("رقم الجوال مستخدم في حساب آخر.", "error");
+                els.phone.focus();
+                return;
+              }
+            }
+
+            const updatedUser = {
+              ...(state.user || {}),
+              firstName,
+              lastName,
+              name: `${firstName} ${lastName}`.trim(),
+              phone,
+              email: els.email.value.trim(),
+              gender: els.gender.value,
+              city: els.city.value.trim(),
+              district: els.district.value.trim(),
+              updatedAt: new Date().toISOString(),
+            };
+
+            // نحفظ البيانات تحت رقم الجوال الجديد
+            await set(ref(db, `users/${phone}`), updatedUser);
+
+            // إذا تغير الرقم، نحذف المسار القديم لأن Firebase عندك يستخدم رقم الجوال كمفتاح
+            if (phone !== oldPhone) {
+              await remove(ref(db, `users/${oldPhone}`));
+            }
+
+            state.user = updatedUser;
+            state.userPhone = phone;
+            state.userName = updatedUser.name;
+
+            localStorage.setItem("userName", updatedUser.name);
+            localStorage.setItem("userPhone", phone);
+
+            fillUserInterface();
+            setProfileEditMode(false);
+            showFeedback("تم حفظ التغييرات بنجاح.", "success");
+          } catch (error) {
+            showFeedback("تعذر حفظ البيانات. حاولي مرة أخرى.", "error");
+            console.error(error);
+          }
+        }
+
+        function isValidSaudiPhone(phone) {
+          return /^05\d{8}$/.test(phone);
+        }
+
+        function showFeedback(message, type) {
+          if (!els.feedback) return;
+
+          els.feedback.textContent = message;
+          els.feedback.className = `profile-form-feedback show ${type}`;
+
+          window.clearTimeout(showFeedback.timer);
+          showFeedback.timer = window.setTimeout(() => {
+            els.feedback.className = "profile-form-feedback";
+            els.feedback.textContent = "";
+          }, 4500);
+        }
+
+        function handleLogout() {
+          localStorage.removeItem("userPhone");
+          localStorage.removeItem("userName");
+
+          state.userPhone = "";
+          state.userName = "";
+          state.user = null;
+          state.packages = [];
+          state.favoriteServices = [];
+
+          updateProfileVisibility();
+          clearPrivateDisplays();
+        }
+
+        function loadSavedPackages() {
+          return normalizeArray(
+            parseJSON(localStorage.getItem(STORAGE_KEYS.packages), []),
+          );
+        }
+
+        async function syncPackagesFromFirebase() {
+          if (!isLoggedIn()) return;
+
+          try {
+            const savedSnapshot = await get(
+              child(dbRef, `users/${state.userPhone}/savedPackages`),
+            );
+            const packagesSnapshot = await get(
+              child(dbRef, `users/${state.userPhone}/packages`),
+            );
+
+            const firebasePackages = [
+              ...normalizeArray(
+                savedSnapshot.exists() ? savedSnapshot.val() : [],
+              ),
+              ...normalizeArray(
+                packagesSnapshot.exists() ? packagesSnapshot.val() : [],
+              ),
+            ];
+
+            if (!firebasePackages.length) return;
+
+            state.packages = mergePackages(state.packages, firebasePackages);
+            persistPackages();
+            renderSavedPackages();
+            updateCounters();
+          } catch (error) {
+            console.warn("تعذرت مزامنة الباقات من Firebase:", error);
+          }
+        }
+
+        function mergePackages(localPackages, firebasePackages) {
+          const map = new Map();
+
+          [...localPackages, ...firebasePackages].forEach((pkg, index) => {
+            const key =
+              pkg.id ||
+              pkg.packageId ||
+              pkg.createdAt ||
+              pkg.savedAt ||
+              pkg.timestamp ||
+              `package-${index}`;
+            map.set(key, pkg);
+          });
+
+          return Array.from(map.values());
+        }
+
+        function persistPackages() {
+          localStorage.setItem(
+            STORAGE_KEYS.packages,
+            JSON.stringify(state.packages),
+          );
+
+          if (!isLoggedIn()) return;
+
+          set(
+            ref(db, `users/${state.userPhone}/savedPackages`),
+            state.packages,
+          ).catch((error) => {
+            console.warn("تعذر تحديث الباقات في Firebase:", error);
+          });
+        }
+
+        function renderSavedPackages() {
+          if (!isLoggedIn()) return;
+
+          els.savedPackagesGrid.innerHTML = "";
+
+          const hasPackages = state.packages.length > 0;
+          els.savedPackagesEmpty.hidden = hasPackages;
+
+          state.packages.forEach((pkg, index) => {
+            const card = document.createElement("article");
+            card.className = "profile-package-card";
+
+            const packageName = getPackageName(pkg, index);
+            const servicesCount = getPackageServicesCount(pkg);
+            const total = getPackageTotal(pkg);
+            const savedDate = formatDate(
+              pkg.savedAt ||
+                pkg.saveDate ||
+                pkg.createdAt ||
+                pkg.updatedAt ||
+                pkg.timestamp,
+            );
+
+            card.innerHTML = `
+        <div class="profile-card-top">
+          <div>
+            <h4 class="profile-card-title">${escapeHTML(packageName)}</h4>
+            <p class="profile-card-subtitle">${servicesCount} خدمة</p>
+          </div>
+          <span class="profile-badge">محفوظة</span>
+        </div>
+
+        <div class="profile-card-details">
+          <span class="profile-detail-item">
+            <span class="material-symbols-rounded" aria-hidden="true">payments</span>
+            <span class="num">${formatCurrency(total)}</span>
+          </span>
+          <span class="profile-detail-item">
+            <span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>
+            <span>${savedDate || "تاريخ الحفظ غير محدد"}</span>
+          </span>
+        </div>
+
+        <div class="profile-card-actions">
+         <button class="btn btn-primary" type="button" data-edit-package="${index}">
+  <span class="material-symbols-rounded" aria-hidden="true">edit</span>
+  تعديل
+</button>
+
+<button class="btn btn-text profile-btn-text-danger" type="button" data-delete-package="${index}">
+  <span class="material-symbols-rounded" aria-hidden="true">delete</span>
+  حذف
+</button>
+        </div>
+      `;
+
+            els.savedPackagesGrid.appendChild(card);
+          });
+
+          els.savedPackagesGrid
+            .querySelectorAll("[data-edit-package]")
+            .forEach((btn) => {
+              btn.addEventListener("click", () =>
+                editPackage(Number(btn.dataset.editPackage)),
+              );
+            });
+
+          els.savedPackagesGrid
+            .querySelectorAll("[data-delete-package]")
+            .forEach((btn) => {
+              btn.addEventListener("click", () =>
+                openDeleteModal(Number(btn.dataset.deletePackage)),
+              );
+            });
+        }
+
+        function editPackage(index) {
+          if (!isLoggedIn()) return;
+
+          const pkg = state.packages[index];
+          if (!pkg) return;
+
+          localStorage.setItem(
+            STORAGE_KEYS.currentDesign,
+            JSON.stringify({
+              ...pkg,
+              editingIndex: index,
+              isEditing: true,
+              source: "profile",
+            }),
+          );
+
+          window.location.href = "Design your package.html";
+        }
+
+        function openDeleteModal(index) {
+          if (!isLoggedIn()) return;
+
+          state.pendingDeleteIndex = index;
+          els.deleteModal.hidden = false;
+          els.deleteModal.classList.add("open");
+          els.deleteModal.setAttribute("aria-hidden", "false");
+        }
+
+        function closeDeleteModal() {
+          if (!els.deleteModal) return;
+
+          state.pendingDeleteIndex = null;
+          els.deleteModal.classList.remove("open");
+          els.deleteModal.setAttribute("aria-hidden", "true");
+          els.deleteModal.hidden = true;
+        }
+
+        function confirmDeletePackage() {
+          if (!isLoggedIn()) return;
+          if (state.pendingDeleteIndex === null) return;
+
+          state.packages.splice(state.pendingDeleteIndex, 1);
+          persistPackages();
+          renderSavedPackages();
+          updateCounters();
+          closeDeleteModal();
+        }
+
+        function loadFavoriteServices() {
+          for (const key of STORAGE_KEYS.favoriteServices) {
+            const value = normalizeArray(
+              parseJSON(localStorage.getItem(key), []),
+            );
+            if (value.length) return value;
+          }
+
+          return [];
+        }
+
+        function persistFavoriteServices() {
+          localStorage.setItem(
+            STORAGE_KEYS.favoriteServices[0],
+            JSON.stringify(state.favoriteServices),
+          );
+        }
+
+        function renderFavoriteServices() {
+          if (!isLoggedIn()) return;
+
+          els.favoriteServicesGrid.innerHTML = "";
+
+          const hasFavorites = state.favoriteServices.length > 0;
+          els.favoriteServicesEmpty.hidden = hasFavorites;
+
+          state.favoriteServices.forEach((service, index) => {
+            const card = document.createElement("article");
+            card.className = "profile-service-card";
+
+            const title =
+              service.name ||
+              service.title ||
+              service.serviceName ||
+              "خدمة مفضلة";
+            const type =
+              service.type ||
+              service.category ||
+              service.serviceType ||
+              "خدمة زفاف";
+            const location =
+              service.location ||
+              [service.city, service.district].filter(Boolean).join(" / ");
+            const price =
+              service.price || service.startingPrice || service.total || "";
+            const detailsLink =
+              service.detailsUrl ||
+              service.url ||
+              service.link ||
+              service.pageUrl ||
+              "Services.html";
+
+            card.innerHTML = `
+        <div class="profile-card-top">
+          <div>
+            <h4 class="profile-card-title">${escapeHTML(title)}</h4>
+            <p class="profile-card-subtitle">${escapeHTML(type)}</p>
+          </div>
+          <span class="profile-badge">مفضلة</span>
+        </div>
+
+        <div class="profile-card-details">
+          ${
+            location
+              ? `<span class="profile-detail-item">
+                  <span class="material-symbols-rounded" aria-hidden="true">location_on</span>
+                  <span>${escapeHTML(location)}</span>
+                </span>`
+              : ""
+          }
+          ${
+            price
+              ? `<span class="profile-detail-item">
+                  <span class="material-symbols-rounded" aria-hidden="true">payments</span>
+                  <span class="num">${formatCurrency(price)}</span>
+                </span>`
+              : ""
+          }
+        </div>
+
+        <div class="profile-card-actions">
+          <a class="btn btn-primary" href="${escapeAttribute(detailsLink)}">
+  <span class="material-symbols-rounded" aria-hidden="true">visibility</span>
+  عرض التفاصيل
+</a>
+
+<button class="btn btn-text profile-btn-text-danger" type="button" data-remove-service="${index}">
+  <span class="material-symbols-rounded" aria-hidden="true">heart_minus</span>
+  إزالة من المفضلة
+</button>
+        </div>
+      `;
+
+            els.favoriteServicesGrid.appendChild(card);
+          });
+
+          els.favoriteServicesGrid
+            .querySelectorAll("[data-remove-service]")
+            .forEach((btn) => {
+              btn.addEventListener("click", () => {
+                if (!isLoggedIn()) return;
+
+                state.favoriteServices.splice(
+                  Number(btn.dataset.removeService),
+                  1,
+                );
+                persistFavoriteServices();
+                renderFavoriteServices();
+                updateCounters();
+              });
+            });
+        }
+
+        function updateCounters() {
+          return;
+        }
+
+        function normalizeArray(value) {
+          if (!value) return [];
+          if (Array.isArray(value)) return value.filter(Boolean);
+          if (typeof value === "object")
+            return Object.values(value).filter(Boolean);
+          return [];
+        }
+
+        function parseJSON(raw, fallback) {
+          try {
+            return raw ? JSON.parse(raw) : fallback;
+          } catch {
+            return fallback;
+          }
+        }
+
+        function getPackageName(pkg, index) {
+          return (
+            pkg.name ||
+            pkg.packageName ||
+            pkg.title ||
+            pkg.eventName ||
+            `باقة محفوظة ${index + 1}`
+          );
+        }
+
+        function getPackageServicesCount(pkg) {
+          const services =
+            pkg.services ||
+            pkg.selectedServices ||
+            pkg.items ||
+            pkg.steps ||
+            pkg.categories ||
+            pkg.selected ||
+            [];
+
+          if (Array.isArray(services)) return services.length;
+          if (typeof services === "object" && services !== null)
+            return Object.keys(services).length;
+          return 0;
+        }
+
+        function getPackageTotal(pkg) {
+          const directTotal =
+            pkg.total ||
+            pkg.totalPrice ||
+            pkg.finalTotal ||
+            pkg.grandTotal ||
+            pkg.estimatedTotal ||
+            0;
+
+          if (Number(directTotal)) return Number(directTotal);
+
+          const services = normalizeArray(
+            pkg.services ||
+              pkg.selectedServices ||
+              pkg.items ||
+              pkg.selected ||
+              [],
+          );
+          return services.reduce((sum, item) => {
+            const value = Number(item.price || item.total || item.cost || 0);
+            return sum + (Number.isFinite(value) ? value : 0);
+          }, 0);
+        }
+
+        function formatCurrency(value) {
+          const number = Number(value);
+
+          if (!Number.isFinite(number) || number <= 0) {
+            return "السعر غير محدد";
+          }
+
+          return new Intl.NumberFormat("ar-SA", {
+            style: "currency",
+            currency: "SAR",
+            maximumFractionDigits: 0,
+          }).format(number);
+        }
+
+        function formatDate(value) {
+          if (!value) return "";
+
+          const date = new Date(value);
+          if (Number.isNaN(date.getTime())) return String(value);
+
+          return new Intl.DateTimeFormat("ar-SA", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }).format(date);
+        }
+
+        function escapeHTML(value) {
+          return String(value ?? "")
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+        }
+
+        function escapeAttribute(value) {
+          return escapeHTML(value).replaceAll("`", "&#096;");
+        }
+      </script>
+    </main>
+
+    <style>
+      li a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col" style="flex: 2">
+          <div class="logo">ليلة</div>
+          <p style="margin-top: 20px; color: #666">
+            المنصة السعودية الأولى لتخطيط الزفاف بكل ذكاء وهدوء.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="join.html">انضم كمورد </a></li>
+            <li>سياسة الخصوصية</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>تواصل معنا</h4>
+          <p>مكة، المملكة العربية السعودية</p>
+          <p>support@laylah.sa</p>
+        </div>
+      </div>
+      <div
+        style="
+          text-align: center;
+          border-top: 1px solid var(--md-sys-color-outline);
+          padding-top: 24px;
+          color: #888;
+          font-size: 0.9rem;
+        "
+      >
+        &copy; 2026 منصة ليلة. جميع الحقوق محفوظة.
+      </div>
+    </footer>
+
+    <script>
+      let packageIdxToDelete = null;
+      const SAVED_PACKAGES_KEY = "laylah_saved_packages_list";
+      const CURRENT_STATE_KEY = "laylah_current_design_state";
+
+      function formatCurrency(value) {
+        return `${Number(value).toLocaleString("ar-SA")} ر.س`;
+      }
+
+      function updateSavedPackagesDisplay() {
+        const grid = document.getElementById("savedPackagesGrid");
+        const saved = JSON.parse(
+          localStorage.getItem(SAVED_PACKAGES_KEY) || "[]",
+        );
+
+        if (saved.length === 0) {
+          grid.innerHTML = `<div class="card" style="padding: 20px; text-align: center; grid-column: 1/-1; opacity: 0.6;">لا توجد باقات محفوظة حالياً.</div>`;
+          return;
+        }
+
+        grid.innerHTML = saved
+          .map((pkg, index) => {
+            const services = Object.values(pkg.selected || pkg.services || {});
+            const total =
+              typeof pkg.totalPrice === "number"
+                ? pkg.totalPrice
+                : services.reduce((sum, s) => sum + Number(s.price || 0), 0);
+            return `
+              <div class="card" style="display: flex; flex-direction: column; gap: 15px;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                      <strong style="color: var(--md-sys-color-primary); font-size: 1.1rem;">${pkg.packageName || "باقة مخصصة"}</strong>
+                      <span class="num" style="font-weight: 900; color: var(--md-sys-color-secondary);">${formatCurrency(total)}</span>
+                  </div>
+                  <p style="font-size: 0.9rem; opacity: 0.7;">باقة تحتوي على ${services.length} خدمات.</p>
+                  <div style="margin-top: auto; display: flex; gap: 10px; border-top: 1px solid var(--md-sys-color-outline); padding-top: 15px;">
+                      <button class="btn btn-secondary" style="flex:1; padding: 8px;" onclick="loadPackageForEdit(${index})">تعديل</button>
+                      <button class="btn-text" style="color: var(--md-sys-color-error);" onclick="askDeletePackage(${index})">
+                        <span class="material-symbols-rounded">delete</span>
+                      </button>
+                  </div>
+              </div>
+              `;
+          })
+          .join("");
+      }
+
+      function mergeSavedPackages(remotePackages) {
+        const localPackages = JSON.parse(
+          localStorage.getItem(SAVED_PACKAGES_KEY) || "[]",
+        );
+        const merged = [...localPackages];
+
+        remotePackages.forEach((pkg) => {
+          const services = Object.values(pkg.selected || pkg.services || {});
+          const total =
+            typeof pkg.totalPrice === "number"
+              ? pkg.totalPrice
+              : services.reduce((sum, s) => sum + Number(s.price || 0), 0);
+          const exists = merged.some(
+            (item) =>
+              item.timestamp === pkg.timestamp ||
+              ((item.packageName || "") === (pkg.packageName || "") &&
+                Number(item.totalPrice || 0) === total),
+          );
+
+          if (!exists) {
+            merged.push({
+              ...pkg,
+              selected: pkg.selected || pkg.services || {},
+              totalPrice: total,
+              status: pkg.status || "محفوظة",
+              saveDate:
+                pkg.saveDate ||
+                new Date(pkg.timestamp || Date.now()).toLocaleDateString(
+                  "ar-SA",
+                ),
+            });
+          }
+        });
+
+        localStorage.setItem(SAVED_PACKAGES_KEY, JSON.stringify(merged));
+      }
+
+      async function syncSavedPackagesFromFirebase() {
+        const userPhone = localStorage.getItem("userPhone");
+        if (!userPhone) return;
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyC5LqK5nYvhmgVLB8utjPjLQdNQMy_qe2c",
+          authDomain: "comments-test01.firebaseapp.com",
+          databaseURL: "https://comments-test01-default-rtdb.firebaseio.com",
+          projectId: "comments-test01",
+          storageBucket: "comments-test01.firebasestorage.app",
+          messagingSenderId: "1061900134848",
+          appId: "1:1061900134848:web:a740fa25f3a27a36be0025",
+        };
+
+        try {
+          const { initializeApp } =
+            await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js");
+          const { getDatabase, ref, get } =
+            await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js");
+          const app = initializeApp(firebaseConfig, "profileFavorites");
+          const db = getDatabase(app);
+          const snapshot = await get(ref(db, `favorites/${userPhone}`));
+
+          if (!snapshot.exists()) return;
+
+          mergeSavedPackages(Object.values(snapshot.val()));
+          updateSavedPackagesDisplay();
+        } catch (error) {
+          console.warn("تعذر جلب المفضلة من Firebase:", error);
+        }
+      }
+
+      window.loadPackageForEdit = function (index) {
+        const saved = JSON.parse(
+          localStorage.getItem(SAVED_PACKAGES_KEY) || "[]",
+        );
+        const pkg = saved[index];
+
+        // حفظ بيانات الباقة المختارة في الـ localStorage ليتم قراءتها في صفحة Design your package
+        // نقوم بتمرير الـ index أيضاً إذا كنت تحتاج لمعرفة أي باقة يتم تعديلها في القائمة الأصلية
+        const stateToEdit = JSON.parse(JSON.stringify(pkg));
+        stateToEdit.editingIndex = index;
+
+        localStorage.setItem(CURRENT_STATE_KEY, JSON.stringify(stateToEdit));
+
+        // الانتقال لصفحة التصميم
+        window.location.href = "Design your package.html";
+      };
+
+      window.askDeletePackage = function (index) {
+        packageIdxToDelete = index;
+        document.getElementById("confirmDeletePopup").classList.add("show");
+      };
+
+      document.getElementById("confirmDeleteBtn").onclick = () => {
+        let saved = JSON.parse(
+          localStorage.getItem(SAVED_PACKAGES_KEY) || "[]",
+        );
+        saved.splice(packageIdxToDelete, 1);
+        localStorage.setItem(SAVED_PACKAGES_KEY, JSON.stringify(saved));
+        document.getElementById("confirmDeletePopup").classList.remove("show");
+        updateSavedPackagesDisplay();
+      };
+
+      document.getElementById("cancelDeleteBtn").onclick = () => {
+        document.getElementById("confirmDeletePopup").classList.remove("show");
+      };
+
+      updateSavedPackagesDisplay();
+      syncSavedPackagesFromFirebase();
+    </script>
+  </body>
+</html>
