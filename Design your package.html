@@ -1,0 +1,2499 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>صممي باقتك | منصة ليلة</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* نظام ألوان Material 3 مخصص للهوية الفاخرة */
+        --md-sys-color-primary: #522b47;
+        --md-sys-color-on-primary: #ffffff;
+        --md-sys-color-secondary: #b19470;
+        --md-sys-color-tertiary: #e8d5d8;
+        --md-sys-color-surface: #fcfaf9;
+        --md-sys-color-on-surface: #1d1b1e;
+        --md-sys-color-outline: #d1c4bc;
+        --md-sys-color-surface-variant: #f4eeed;
+
+        /* نظام المسافات 8px */
+        --spacing-xs: 4px;
+        --spacing-s: 8px;
+        --spacing-m: 16px;
+        --spacing-l: 24px;
+        --spacing-xl: 32px;
+
+        /* الحواف والظلال حسب معايير M3 */
+        --radius-full: 100px;
+        --radius-large: 28px;
+        --radius-medium: 16px;
+        --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow-2: 0 8px 16px rgba(0, 0, 0, 0.08);
+
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Tajawal", sans-serif;
+      }
+
+      body {
+        background-color: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+        line-height: 1.6;
+      }
+
+      a,
+      button,
+      input,
+      textarea {
+        transition: var(--transition);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+      }
+
+      .num,
+      input[type="number"] {
+        font-family: "IBM Plex Sans Arabic", "Tajawal", sans-serif;
+      }
+
+      .material-symbols-rounded {
+        font-family: "Material Symbols Rounded";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ===== Stepper Card ===== */
+      .package-stepper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-m);
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        width: 100%;
+      }
+
+      .step-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-s);
+        position: relative;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+        width: 80px;
+        padding: 10px 0;
+      }
+
+      .step-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-full);
+        border: 2px solid var(--md-sys-color-secondary);
+        background: var(--md-sys-color-on-primary);
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1rem;
+        transition: var(--transition);
+        position: relative;
+        z-index: 2;
+      }
+
+      .step-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-align: center;
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.7;
+        white-space: normal;
+        line-height: 1.2;
+        transition: var(--transition);
+      }
+
+      /* الحالة النشطة: لون موف وبدون تغيير في الحجم */
+      .step-item.active .step-circle {
+        background: var(--md-sys-color-primary);
+        border-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        transform: none !important; /* التأكيد على عدم التكبير */
+      }
+
+      .step-item.active .step-label {
+        color: var(--md-sys-color-primary);
+        opacity: 1;
+      }
+
+      /* حالة الإكمال: خلفية بني وعلامة صح */
+      .step-item.completed .step-circle {
+        background: var(--md-sys-color-secondary);
+        border-color: var(--md-sys-color-secondary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      /* زر الإضافة */
+      .step-item.add-step .step-circle {
+        border-style: solid;
+        border-color: var(--md-sys-color-secondary);
+        color: var(--md-sys-color-primary);
+      }
+
+      /* ===== Services Menu ===== */
+      .services-menu {
+        position: fixed;
+        inset: 0;
+        background: color-mix(
+          in srgb,
+          var(--md-sys-color-on-primary) 32%,
+          transparent
+        );
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-l);
+        z-index: 2000;
+      }
+
+      .services-menu.open {
+        display: flex;
+      }
+
+      .services-menu-card {
+        width: min(520px, 100%);
+        background: var(--md-sys-color-on-primary);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-2);
+        padding: var(--spacing-l);
+      }
+
+      .services-menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-m);
+        margin-bottom: var(--spacing-l);
+      }
+
+      .services-menu-header h3 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.3rem;
+        font-weight: 900;
+      }
+
+      .icon-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-full);
+        border: 1px solid var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .services-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-s);
+        margin-bottom: var(--spacing-l);
+      }
+
+      .service-action {
+        min-height: 44px;
+        padding: 10px 12px;
+        border-radius: var(--radius-medium);
+        border: 1px solid var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        font-family: inherit;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-s);
+      }
+
+      .service-action.danger {
+        color: #d32f2f;
+      }
+
+      .service-select-label {
+        display: block;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 800;
+        margin-bottom: var(--spacing-s);
+      }
+
+      .service-select {
+        width: 100%;
+        min-height: 44px;
+        border-radius: 12px;
+        border: 1.5px solid var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
+        padding: 12px 14px;
+        font-family: inherit;
+        font-size: 1rem;
+      }
+
+      .service-select:focus {
+        outline: none;
+        border-color: var(--md-sys-color-primary);
+        box-shadow: 0 0 0 4px var(--md-sys-color-surface-variant);
+      }
+
+      @media (max-width: 768px) {
+        .step-item {
+          width: 70px;
+        }
+        .step-circle {
+          width: 36px;
+          height: 36px;
+          font-size: 0.9rem;
+        }
+        .step-label {
+          font-size: 0.7rem;
+        }
+        .services-actions {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* --- الأزرار --- */
+      .btn {
+        min-height: 44px;
+        padding: 12px 32px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-s);
+        border: none;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .btn-primary {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-secondary {
+        background-color: var(--md-sys-color-surface);
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--md-sys-color-surface-variant);
+      }
+
+      .btn-text {
+        min-height: 44px;
+        border: none;
+        background: transparent;
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: 8px 12px;
+        border-radius: var(--radius-full);
+      }
+
+      .btn-text:hover {
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      /* --- صفحة صممي باقتك --- */
+      .design-package-page {
+        padding: 140px 6% 80px;
+        background: var(--md-sys-color-surface);
+      }
+
+      .page-heading {
+        max-width: 820px;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .eyebrow {
+        color: var(--md-sys-color-secondary);
+        font-weight: 800;
+        margin-bottom: var(--spacing-s);
+      }
+
+      .page-heading h1 {
+        color: var(--md-sys-color-primary);
+        font-size: 2.4rem;
+        font-weight: 900;
+        line-height: 1.3;
+        margin-bottom: var(--spacing-m);
+      }
+
+      .page-heading p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        font-size: 1.05rem;
+      }
+
+      .builder-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: var(--spacing-xl);
+        align-items: start;
+      }
+      .builder-main {
+        min-width: 0;
+      }
+      .builder-main {
+        display: grid;
+        gap: var(--spacing-l);
+      }
+
+      .card {
+        background: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-1);
+        transition: var(--transition);
+        padding: var(--spacing-l);
+      }
+
+      .builder-card {
+        padding: var(--spacing-xl);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-m);
+      }
+
+      .form-field {
+        display: grid;
+        gap: var(--spacing-s);
+      }
+
+      .form-field.full {
+        grid-column: 1 / -1;
+      }
+
+      .form-field label {
+        font-weight: 800;
+        color: var(--md-sys-color-primary);
+      }
+
+      .input-f {
+        min-height: 48px;
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1.5px solid var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface);
+        outline: none;
+        font-size: 1rem;
+      }
+
+      textarea.input-f {
+        min-height: 112px;
+        resize: vertical;
+      }
+
+      .input-f:focus {
+        border-color: var(--md-sys-color-primary);
+        box-shadow: 0 0 0 4px var(--md-sys-color-surface-variant);
+      }
+
+      .budget-hint,
+      .filter-note {
+        margin-top: var(--spacing-m);
+        padding: 12px 16px;
+        border-radius: var(--radius-medium);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        font-weight: 700;
+        display: flex;
+        align-items: flex-start;
+        gap: var(--spacing-s);
+      }
+
+      .budget-hint .material-symbols-rounded,
+      .filter-note .material-symbols-rounded {
+        color: var(--md-sys-color-secondary);
+      }
+
+      .services-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-m);
+        margin-bottom: var(--spacing-l);
+        padding-bottom: var(--spacing-m);
+        border-bottom: 1px solid var(--md-sys-color-outline);
+      }
+
+      .remaining-budget {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        min-height: 44px;
+        padding: 8px 16px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+      }
+
+      .service-options-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-m);
+      }
+
+      .service-option-card {
+        padding: var(--spacing-l);
+        display: grid;
+        gap: var(--spacing-s);
+        cursor: pointer;
+      }
+
+      .service-option-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+
+      .service-option-card.selected {
+        border-color: var(--md-sys-color-primary);
+        box-shadow: 0 0 0 4px var(--md-sys-color-surface-variant);
+      }
+
+      .service-option-card.disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .service-option-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--spacing-m);
+      }
+
+      .service-option-card h3 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.15rem;
+        font-weight: 900;
+      }
+
+      .service-option-card p {
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        font-size: 0.95rem;
+      }
+
+      .price-tag {
+        color: var(--md-sys-color-primary);
+        font-weight: 900;
+        font-size: 1.05rem;
+      }
+
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-s);
+        margin-top: var(--spacing-s);
+      }
+
+      .chip {
+        display: inline-flex;
+        min-height: 32px;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: 6px 12px;
+        border-radius: var(--radius-full);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .service-card-actions {
+        margin-top: var(--spacing-s);
+        display: flex;
+        gap: var(--spacing-s);
+        flex-wrap: wrap;
+      }
+
+      .summary-panel {
+        position: sticky;
+        top: 100px;
+      }
+
+      .summary-card {
+        padding: var(--spacing-l);
+      }
+
+      .summary-card h2 {
+        color: var(--md-sys-color-primary);
+        font-size: 1.3rem;
+        font-weight: 900;
+        margin-bottom: var(--spacing-m);
+      }
+
+      .summary-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-s);
+        margin-bottom: var(--spacing-l);
+      }
+
+      .summary-stat {
+        padding: 12px;
+        border-radius: var(--radius-medium);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .summary-stat span {
+        display: block;
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        font-size: 0.85rem;
+      }
+
+      .summary-stat strong {
+        color: var(--md-sys-color-primary);
+        font-size: 1rem;
+        font-weight: 900;
+      }
+
+      .selected-services-list {
+        display: grid;
+        gap: var(--spacing-s);
+        margin-bottom: var(--spacing-l);
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      .selected-service-item {
+        display: grid;
+        gap: var(--spacing-xs);
+        padding: 12px;
+        border-radius: var(--radius-medium);
+        border: 1px solid var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface);
+      }
+
+      .selected-service-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-s);
+      }
+
+      .selected-service-head strong {
+        color: var(--md-sys-color-primary);
+      }
+
+      .selected-service-actions {
+        display: flex;
+        gap: var(--spacing-xs);
+      }
+
+      .icon-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-full);
+        border: none;
+        background: transparent;
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon-btn:hover {
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .empty-summary {
+        padding: var(--spacing-l);
+        border-radius: var(--radius-medium);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        text-align: center;
+      }
+
+      .summary-final-actions {
+        display: grid;
+        gap: var(--spacing-s);
+      }
+
+      .completion-message {
+        display: none;
+        padding: var(--spacing-l);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+        margin-top: var(--spacing-l);
+      }
+
+      .completion-message.show {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+      }
+
+      footer {
+        padding: 80px 6% 40px;
+        background: var(--md-sys-color-surface-variant);
+        border-top: 1px solid var(--md-sys-color-outline);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-xl);
+        margin-bottom: 60px;
+      }
+
+      .footer-col h4 {
+        margin-bottom: var(--spacing-l);
+        color: var(--md-sys-color-primary);
+        font-weight: 800;
+      }
+
+      .footer-col li {
+        list-style: none;
+        margin-bottom: 12px;
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.72;
+        cursor: pointer;
+      }
+
+      .footer-col li:hover {
+        color: var(--md-sys-color-primary);
+        opacity: 1;
+      }
+
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .footer-note {
+        text-align: center;
+        border-top: 1px solid var(--md-sys-color-outline);
+        padding-top: 24px;
+        color: var(--md-sys-color-on-surface);
+        opacity: 0.64;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 1100px) {
+        .design-package-page {
+          padding: 150px 6% 64px;
+        }
+
+        .builder-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .summary-panel {
+          position: static;
+        }
+      }
+
+      @media (min-width: 1101px) {
+        .nav-links-row {
+          display: none;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page-heading h1 {
+          font-size: 1.8rem;
+        }
+
+        .builder-card,
+        .summary-card {
+          padding: var(--spacing-l);
+        }
+
+        .form-grid,
+        .service-options-grid,
+        .summary-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .services-toolbar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .summary-final-actions .btn {
+          width: 100%;
+        }
+      }
+
+      /* ===== شريط التنقل Navbar ===== */
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6%;
+        background: var(--md-sys-color-surface);
+        backdrop-filter: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        transition: var(--transition);
+      }
+
+      .nav-main-row {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--spacing-l);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-xl);
+        justify-content: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      /* ===== شريط البحث داخل التنقل ===== */
+      .search-bar {
+        background: var(--md-sys-color-surface-variant);
+        border-radius: var(--radius-full);
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        flex: 1;
+        max-width: 420px;
+        transition: var(--transition);
+        cursor: text;
+      }
+
+      .search-bar:focus-within {
+        border-color: var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      /* ===== أزرار تسجيل الدخول وإنشاء الحساب ===== */
+      .nav-auth-btns {
+        display: flex;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-btn {
+        padding: 8px 20px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-btn-signup {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .nav-btn-login {
+        background-color: transparent;
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+
+      /* ===== حاوية الروابط للجوال ===== */
+      .nav-links-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: var(--spacing-s);
+        transition: var(--transition);
+      }
+
+      /* ===== أزرار عامة مستخدمة داخل التنقل ===== */
+      .btn-primary {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+      }
+
+      /* ===== جزء الحساب داخل التنقل ===== */
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .logout-custom-btn {
+        font-family: "Tajawal", sans-serif !important;
+        font-weight: 700 !important;
+        border-radius: 50px !important;
+        border: none;
+        cursor: pointer;
+        padding: 10px 24px;
+        height: 43px;
+        min-width: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        transition: all 0.3s ease;
+      }
+
+      .logout-custom-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      .nav-link {
+        font-family: "Tajawal", sans-serif !important;
+        font-weight: 500;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+      }
+
+      /* ===== Responsive الخاص بالتنقل من الصفحة ===== */
+      @media (max-width: 1100px) {
+        .nav-main-row .nav-links {
+          display: none;
+        }
+
+        .nav-links-row {
+          display: flex;
+          overflow-x: auto;
+          scrollbar-width: none;
+          padding: 8px 0 12px;
+        }
+
+        .nav-links-row::-webkit-scrollbar {
+          display: none;
+        }
+
+        .nav-links {
+          gap: var(--spacing-l);
+        }
+
+        .nav-links a {
+          font-size: 0.95rem;
+        }
+
+        .search-bar {
+          max-width: none;
+          min-width: 0;
+        }
+      }
+
+      @media (min-width: 1101px) {
+        .nav-links-row {
+          display: none;
+        }
+      }
+
+      /* تنسيقات الـ Popups */
+      .popup-overlay {
+        position: fixed;
+        inset: 0;
+        background: color-mix(
+          in srgb,
+          var(--md-sys-color-on-surface) 40%,
+          transparent
+        );
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 3000;
+      }
+      .popup-overlay.show {
+        display: flex;
+      }
+      .popup-card {
+        background: var(--md-sys-color-surface);
+        padding: 24px;
+        border-radius: var(--radius-medium);
+        width: min(400px, 90%);
+        text-align: center;
+        box-shadow: var(--shadow-2);
+      }
+      .popup-card h4 {
+        margin-bottom: 24px;
+        color: var(--md-sys-color-primary);
+        font-size: 1.2rem;
+        font-weight: 900;
+      }
+      .popup-btns {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      #serviceSelectionArea {
+        margin-top: 16px;
+        text-align: right;
+      }
+
+      /* تنبيه النجاح */
+      #successPopup .popup-card h4 {
+        color: var(--md-sys-color-primary);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      #successPopup .material-symbols-rounded {
+        font-size: 48px;
+      }
+      #successPopup p {
+        margin-bottom: 24px;
+        opacity: 0.8;
+      }
+
+      /* --- شريط التنقل (Navbar) --- */
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6%;
+        background: var(--md-sys-color-surface);
+        backdrop-filter: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        transition: var(--transition);
+      }
+
+      .nav-main-row {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: var(--spacing-l);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--md-sys-color-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-xl);
+        justify-content: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--md-sys-color-secondary);
+      }
+
+      .search-bar {
+        background: var(--md-sys-color-surface-variant);
+        border-radius: var(--radius-full);
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        border: 1px solid transparent;
+        flex: 1;
+        max-width: 420px;
+        transition: var(--transition);
+        cursor: text;
+      }
+
+      .search-bar:focus-within {
+        border-color: var(--md-sys-color-outline);
+        background: var(--md-sys-color-surface-variant);
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      /* أزرار تسجيل الدخول وإنشاء حساب في الناف بار */
+      .nav-auth-btns {
+        display: flex;
+        gap: var(--spacing-s);
+        flex-shrink: 0;
+      }
+
+      .nav-btn {
+        padding: 8px 20px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-btn-signup {
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+      }
+
+      .nav-btn-login {
+        background-color: transparent;
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-outline);
+      }
+
+      .nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+      /* ===== User Dropdown Menu ===== */
+      .user-menu {
+        position: relative;
+        align-items: center;
+      }
+      .user-menu-trigger.icon-only {
+        width: 48px;
+        height: 48px;
+        min-height: 48px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--md-sys-color-primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: var(--radius-full);
+        transition: var(--transition);
+        box-shadow: none;
+      }
+
+      .user-menu-trigger.icon-only:hover {
+        background: var(--md-sys-color-surface-variant);
+        transform: none;
+        box-shadow: none;
+      }
+
+      .user-menu-trigger.icon-only .user-profile-icon {
+        font-size: 42px;
+        color: var(--md-sys-color-primary);
+        font-variation-settings: "FILL" 0;
+      }
+      .user-dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        min-width: 220px;
+        background: var(--md-sys-color-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: var(--radius-medium);
+        box-shadow: var(--shadow-2);
+        overflow: hidden;
+        display: none;
+        z-index: 1200;
+      }
+
+      .user-dropdown.open {
+        display: block;
+      }
+
+      .user-dropdown-item {
+        width: 100%;
+        min-height: 54px;
+        padding: 12px 16px;
+        border: none;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+        background: transparent;
+        color: var(--md-sys-color-on-surface);
+        text-decoration: none;
+        font-family: "Tajawal", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-s);
+        text-align: right;
+        cursor: pointer;
+      }
+
+      .user-dropdown-item:last-child {
+        border-bottom: none;
+      }
+
+      .user-dropdown-item:hover {
+        background: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-primary);
+      }
+
+      .user-dropdown-item .material-symbols-rounded {
+        color: var(--md-sys-color-primary);
+        font-size: 22px;
+      }
+
+      .user-dropdown-item.danger {
+        color: var(--md-sys-color-error, #d32f2f);
+      }
+
+      .user-dropdown-item.danger .material-symbols-rounded {
+        color: var(--md-sys-color-error, #d32f2f);
+      }
+      /* حاوية الروابط للسحب في الجوال */
+      .nav-links-row {
+        width: 100%;
+        display: none;
+        justify-content: center;
+        padding-bottom: var(--spacing-s);
+        transition: var(--transition);
+      }
+      /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+      @media (max-width: 1100px) {
+        .nav-main-row .nav-links {
+          display: none;
+        }
+        /* --- التجاوب مع الجوال والشاشات المتوسطة --- */
+        @media (max-width: 1100px) {
+          .nav-main-row .nav-links {
+            display: none;
+          }
+
+          .nav-links-row {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 8px 0 12px;
+          }
+
+          .nav-links-row::-webkit-scrollbar {
+            display: none;
+          }
+
+          .nav-links-row .nav-links {
+            display: flex;
+            gap: var(--spacing-l);
+            min-width: max-content;
+          }
+
+          .nav-links-row .nav-links a {
+            font-size: 0.95rem;
+          }
+
+          .search-bar {
+            max-width: none;
+            min-width: 0;
+          }
+          @media (min-width: 1101px) {
+            .nav-links-row {
+              display: none;
+            }
+
+            .promo-banner-section {
+              padding: 116px 6% 0;
+            }
+          }
+        }
+        @media (max-width: 768px) {
+          .user-dropdown {
+            left: 0;
+            min-width: 200px;
+          }
+
+          .user-menu-trigger {
+            padding-inline: 14px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      /* ===== Mobile navbar layout: logo right, search beside auth left ===== */
+      @media (max-width: 768px) {
+        .nav-main-row {
+          display: grid;
+          grid-template-columns: auto 1fr auto auto;
+          align-items: center;
+          column-gap: var(--spacing-s);
+        }
+
+        .logo {
+          grid-column: 1;
+          justify-self: start;
+          height: 48px;
+          display: inline-flex;
+          align-items: center;
+          line-height: 1;
+        }
+
+        .search-bar {
+          grid-column: 3;
+          justify-self: end;
+          width: 44px;
+          height: 48px;
+          min-width: 44px;
+          max-width: 44px;
+          padding: 0;
+          margin: 0;
+          border: none;
+          background: transparent;
+          border-radius: 0;
+          box-shadow: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+
+        .search-bar input {
+          display: none;
+        }
+
+        .search-bar .material-symbols-rounded {
+          width: 44px;
+          height: 48px;
+          margin: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          line-height: 1;
+          color: var(--md-sys-color-primary);
+        }
+
+        .nav-actions {
+          grid-column: 4;
+          justify-self: end;
+          align-self: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-main-row">
+        <a href="index.html" class="logo"> ليلة </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="Services.html">الخدمات</a></li>
+          <li><a href="Packages.html" class="active">الباقات</a></li>
+          <li><a href="Booking.html">الحجوزات</a></li>
+        </ul>
+
+        <div class="search-bar" id="searchBar">
+          <span class="material-symbols-rounded" id="searchIcon">search</span>
+          <input type="text" placeholder="ابحثي ..." id="searchInput" />
+        </div>
+
+        <script>
+          const searchInput = document.getElementById("searchInput");
+          const searchBar = document.getElementById("searchBar");
+
+          searchInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              window.location.href = "search-results.html";
+            }
+          });
+
+          searchBar.addEventListener("click", function () {
+            if (window.innerWidth <= 768) {
+              window.location.href = "search-results.html";
+            }
+          });
+        </script>
+
+        <div id="authSection" class="nav-actions">
+          <div
+            id="guestLinks"
+            style="display: flex; gap: 8px; align-items: center"
+          >
+            <a href="signup.html" class="nav-btn nav-btn-signup">انشاء حساب</a>
+            <a href="login.html" class="nav-btn nav-btn-login">دخول</a>
+          </div>
+
+          <div id="userLinks" class="user-menu" style="display: none">
+            <button
+              class="user-menu-trigger icon-only"
+              id="userMenuTrigger"
+              type="button"
+              aria-label="قائمة الحساب"
+            >
+              <span class="material-symbols-rounded user-profile-icon"
+                >account_circle</span
+              >
+            </button>
+
+            <div class="user-dropdown" id="userDropdown">
+              <a href="Profile.html" class="user-dropdown-item">
+                <span class="material-symbols-rounded">account_circle</span>
+                <span>الملف الشخصي</span>
+              </a>
+
+              <button
+                type="button"
+                class="user-dropdown-item danger"
+                onclick="logout()"
+              >
+                <span class="material-symbols-rounded">logout</span>
+                <span>تسجيل الخروج</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        /* تطبيق الخط والحواف الدائرية بدقة */
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        /* زر تسجيل الخروج المصحح */
+        .logout-custom-btn {
+          font-family:
+            "Tajawal", sans-serif !important; /* التأكد من نوع الخط */
+          font-weight: 700 !important;
+          border-radius: 50px !important; /* الحواف الدائرية المطلوبة */
+          border: none;
+          cursor: pointer;
+          padding: 10px 24px;
+          height: 43px;
+          min-width: 130px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--md-sys-color-primary);
+          color: var(--md-sys-color-on-primary);
+          transition: all 0.3s ease;
+        }
+
+        .logout-custom-btn:hover {
+          opacity: 0.9;
+          transform: translateY(-1px);
+        }
+
+        /* التأكد من خط "تسجيل الدخول" للزائر */
+        .nav-link {
+          font-family: "Tajawal", sans-serif !important;
+          font-weight: 500;
+          color: var(--md-sys-color-primary);
+          text-decoration: none;
+        }
+      </style>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const userName = localStorage.getItem("userName");
+          const guestLinks = document.getElementById("guestLinks");
+          const userLinks = document.getElementById("userLinks");
+
+          if (userName) {
+            guestLinks.style.display = "none";
+            userLinks.style.display = "flex";
+          } else {
+            guestLinks.style.display = "flex";
+            userLinks.style.display = "none";
+          }
+          const userMenuTrigger = document.getElementById("userMenuTrigger");
+          const userDropdown = document.getElementById("userDropdown");
+
+          if (userMenuTrigger && userDropdown) {
+            userMenuTrigger.addEventListener("click", (event) => {
+              event.stopPropagation();
+              userDropdown.classList.toggle("open");
+            });
+
+            document.addEventListener("click", () => {
+              userDropdown.classList.remove("open");
+            });
+
+            userDropdown.addEventListener("click", (event) => {
+              event.stopPropagation();
+            });
+          }
+        });
+
+        function logout() {
+          if (confirm("هل متأكد من تسجيل الخروج؟")) {
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userPhone");
+            window.location.reload();
+          }
+        }
+      </script>
+
+      <div class="nav-links-row">
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="Services.html">الخدمات</a></li>
+          <li><a href="Packages.html">الباقات</a></li>
+          <li><a href="Booking.html">حجوزاتي</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="design-package-page">
+      <section class="page-heading" aria-labelledby="builderTitle">
+        <p class="eyebrow">صممي باقتك</p>
+        <h1 id="builderTitle">ابني باقة زفافك خطوة بخطوة</h1>
+        <p>
+          حددي ميزانيتك أولًا، ثم اختاري الخدمات المناسبة بالترتيب. الواجهة تحدث
+          ملخص الباقة والميزانية تلقائيًا بعد كل خطوة.
+        </p>
+      </section>
+
+      <div class="builder-layout">
+        <div class="builder-main">
+          <section class="card builder-card" id="builderCard">
+            <div
+              class="package-stepper"
+              id="packageStepper"
+              aria-label="خطوات تصميم الباقة"
+            ></div>
+          </section>
+        </div>
+
+        <aside class="summary-panel" aria-label="ملخص الباقة">
+          <section class="card summary-card">
+            <h2>ملخص الباقة</h2>
+
+            <div class="summary-stats">
+              <div class="summary-stat">
+                <span>الميزانية</span>
+                <strong class="num" id="budgetStat">غير محددة</strong>
+              </div>
+              <div class="summary-stat">
+                <span>الإجمالي</span>
+                <strong class="num" id="totalStat">0 ر.س</strong>
+              </div>
+              <div class="summary-stat">
+                <span>المتبقي</span>
+                <strong class="num" id="remainingStat">غير محدد</strong>
+              </div>
+              <div class="summary-stat">
+                <span>الخدمات</span>
+                <strong class="num" id="selectedCountStat">0</strong>
+              </div>
+            </div>
+
+            <div class="selected-services-list" id="selectedServicesList">
+              <div class="empty-summary">لم يتم اختيار أي خدمة بعد.</div>
+            </div>
+
+            <div class="summary-final-actions">
+              <button class="btn btn-primary" id="bookPackageBtn" type="button">
+                حجز الباقة
+              </button>
+
+              <button
+                class="btn btn-secondary"
+                id="favoritePackageBtn"
+                type="button"
+              >
+                حفظ في المفضلة
+              </button>
+            </div>
+
+            <div class="completion-message" id="completionMessage">
+              <span class="material-symbols-rounded">task_alt</span>
+              <span id="completionText"></span>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <div class="services-menu" id="servicesMenu" aria-hidden="true">
+      <div class="services-menu-card">
+        <div class="services-menu-header">
+          <h3 id="servicesMenuTitle">إدارة خدمات الباقة</h3>
+          <button
+            class="icon-btn"
+            type="button"
+            id="closeServicesMenu"
+            aria-label="إغلاق"
+          >
+            <span class="material-symbols-rounded">close</span>
+          </button>
+        </div>
+
+        <div class="services-actions" id="initialActions">
+          <button type="button" class="service-action" id="editServiceAction">
+            <span class="material-symbols-rounded">edit</span>
+            تعديل خدمة
+          </button>
+          <button
+            type="button"
+            class="service-action danger"
+            id="deleteServiceAction"
+          >
+            <span class="material-symbols-rounded">delete</span>
+            حذف خدمة
+          </button>
+        </div>
+
+        <div id="serviceSelectionArea" style="display: none">
+          <label class="service-select-label" for="serviceTypeSelect"
+            >اختاري نوع الخدمة</label
+          >
+          <select class="service-select" id="serviceTypeSelect">
+            <option value="hall">قاعات الزفاف والمناسبات</option>
+            <option value="kitchen">المطابخ</option>
+            <option value="catering">خدمات الإعاشة والبوفيه</option>
+            <option value="sweets">الحلويات والضيافة</option>
+            <option value="photo">التصوير الفوتوغرافي والفيديو</option>
+            <option value="band">الفرق الشعبية</option>
+            <option value="cards">كروت الدعوة</option>
+          </select>
+          <div
+            style="margin-top: 20px; display: flex; justify-content: flex-end"
+          >
+            <button class="btn btn-primary" id="confirmGoToService">
+              متابعة
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="successPopup" class="popup-overlay">
+      <div class="popup-card">
+        <h4 id="successPopupTitle">
+          <span class="material-symbols-rounded">check_circle</span>
+          تمت العملية بنجاح
+        </h4>
+        <p id="successPopupMessage">
+          يمكنك الاطلاع على تفاصيل الباقة في حسابك.
+        </p>
+        <div class="popup-btns">
+          <button class="btn btn-primary" id="closeSuccessBtn">فهمت</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="confirmDeletePopup" class="popup-overlay">
+      <div class="popup-card">
+        <h4>هل أنت متأكد من حذف الخدمة؟</h4>
+        <div class="popup-btns">
+          <button class="btn btn-primary" id="confirmDeleteBtn">نعم</button>
+          <button class="btn btn-secondary" id="cancelDeleteBtn">لا</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo">ليلة</div>
+          <p>المنصة السعودية الأولى لتخطيط الزفاف بكل ذكاء وهدوء.</p>
+        </div>
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="join.html">انضم كمورد </a></li>
+            <li>سياسة الخصوصية</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>تواصل معنا</h4>
+          <p>مكة، المملكة العربية السعودية</p>
+          <p>support@laylah.sa</p>
+        </div>
+      </div>
+      <div class="footer-note">&copy; 2026 منصة ليلة. جميع الحقوق محفوظة.</div>
+    </footer>
+
+    <style>
+      li a {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
+
+    <script>
+      const steps = [
+        {
+          id: "details",
+          label: "الميزانية",
+          icon: "edit_note",
+          title: "حددي ميزانية الباقة",
+          description:
+            "أدخلي الميزانية الإجمالية والتفاصيل الاختيارية. بعد ذلك سنعرض الخدمات المناسبة ونحدث الملخص تلقائيًا.",
+        },
+        {
+          id: "hall",
+          label: "القاعة",
+          icon: "account_balance",
+          title: "اختاري القاعة",
+          description: "ابدئي باختيار القاعة لأنها تؤثر على بقية قرارات الحفل.",
+        },
+        {
+          id: "kitchen",
+          label: "المطابخ",
+          icon: "restaurant",
+          title: "اختاري المطبخ",
+          description:
+            "اختاري المطبخ المناسب لنوع الضيافة وعدد الضيوف المتوقع.",
+        },
+        {
+          id: "catering",
+          label: "البوفيه",
+          icon: "room_service",
+          title: "اختاري خدمة البوفيه",
+          description: "حددي البوفيه الذي يكمل تجربة الضيافة داخل الحفل.",
+        },
+        {
+          id: "sweets",
+          label: "الحلويات",
+          icon: "cake",
+          title: "اختاري الحلويات والضيافة",
+          description:
+            "أضيفي تفاصيل الضيافة والحلويات المناسبة لطابع المناسبة.",
+        },
+        {
+          id: "photo",
+          label: "التصوير",
+          icon: "photo_camera",
+          title: "اختاري التصوير والفيديو",
+          description: "اختاري فريق التوثيق الذي يحفظ تفاصيل ليلة العمر.",
+        },
+        {
+          id: "band",
+          label: "الفرق",
+          icon: "groups",
+          title: "اختاري الفرق الشعبية",
+          description: "أضيفي لمسة احتفالية مناسبة من خلال اختيار الفرقة.",
+        },
+        {
+          id: "cards",
+          label: "الدعوات",
+          icon: "mail",
+          title: "اختاري كروت الدعوة",
+          description: "اختاري تصميم الدعوات الذي يعكس هوية حفل الزفاف.",
+        },
+      ];
+
+      const services = {
+        hall: [
+          {
+            name: "قاعة ليلة الملكية",
+            desc: "قاعة فاخرة في جدة مع تجهيز كامل.",
+            price: 12500,
+            meta: ["جدة", "4.9", "حتى 300 ضيف"],
+          },
+          {
+            name: "قاعة الورد",
+            desc: "قاعة هادئة للمناسبات المتوسطة.",
+            price: 8500,
+            meta: ["مكة", "4.7", "حتى 180 ضيف"],
+          },
+          {
+            name: "قاعة النخبة",
+            desc: "مساحة واسعة وخدمات تنظيم أساسية.",
+            price: 15000,
+            meta: ["الرياض", "5.0", "حتى 450 ضيف"],
+          },
+        ],
+        kitchen: [
+          {
+            name: "مطبخ ضيافة نجد",
+            desc: "أطباق سعودية تقليدية بتقديم منظم.",
+            price: 5200,
+            meta: ["أطباق شعبية", "4.8"],
+          },
+          {
+            name: "مطبخ الذواقة",
+            desc: "قائمة متنوعة للحفلات المتوسطة.",
+            price: 7400,
+            meta: ["متنوع", "4.7"],
+          },
+          {
+            name: "مطبخ الضيوف",
+            desc: "خيار اقتصادي للطلبات الأساسية.",
+            price: 3800,
+            meta: ["اقتصادي", "4.5"],
+          },
+        ],
+        catering: [
+          {
+            name: "بوفيه ليلة",
+            desc: "بوفيه متكامل مع مشروبات وخدمة تقديم.",
+            price: 6800,
+            meta: ["متكامل", "4.9"],
+          },
+          {
+            name: "بوفيه الندى",
+            desc: "بوفيه متوسط مناسب للحفلات الصغيرة.",
+            price: 4300,
+            meta: ["متوسط", "4.6"],
+          },
+          {
+            name: "بوفيه الفخامة",
+            desc: "اختيارات موسعة وتقديم راقٍ.",
+            price: 9500,
+            meta: ["فاخر", "5.0"],
+          },
+        ],
+        sweets: [
+          {
+            name: "حلويات روز",
+            desc: "حلويات وضيافة قهوة بتغليف أنيق.",
+            price: 2200,
+            meta: ["ضيافة", "4.8"],
+          },
+          {
+            name: "ضيافة ليلة",
+            desc: "ضيافة متكاملة للمدخل والطاولات.",
+            price: 3600,
+            meta: ["متكاملة", "4.7"],
+          },
+          {
+            name: "حلويات المذاق",
+            desc: "خيار بسيط ومناسب للميزانيات المحدودة.",
+            price: 1500,
+            meta: ["اقتصادي", "4.5"],
+          },
+        ],
+        photo: [
+          {
+            name: "استديو لمسة",
+            desc: "تصوير فوتوغرافي وفيديو مختصر.",
+            price: 4800,
+            meta: ["تصوير", "4.7"],
+          },
+          {
+            name: "عدسة ليلة",
+            desc: "تصوير كامل للحفل مع مونتاج.",
+            price: 7200,
+            meta: ["فيديو", "4.9"],
+          },
+          {
+            name: "فريم فاخر",
+            desc: "فريق تصوير موسع للأحداث الكبيرة.",
+            price: 10500,
+            meta: ["فاخر", "5.0"],
+          },
+        ],
+        band: [
+          {
+            name: "فرقة أصالة",
+            desc: "فقرات شعبية منظمة لمدة محددة.",
+            price: 3000,
+            meta: ["شعبي", "4.6"],
+          },
+          {
+            name: "فرقة البهجة",
+            desc: "أداء احتفالي مناسب للعائلات.",
+            price: 4500,
+            meta: ["احتفالي", "4.8"],
+          },
+          {
+            name: "فرقة النخبة",
+            desc: "تنسيق كامل للفقرات الشعبية.",
+            price: 6500,
+            meta: ["فاخر", "4.9"],
+          },
+        ],
+        cards: [
+          {
+            name: "دعوات ناعمة",
+            desc: "تصميم رقمي بسيط وراقي.",
+            price: 900,
+            meta: ["رقمي", "4.8"],
+          },
+          {
+            name: "دعوات فاخرة",
+            desc: "تصميم مطبوع مع تغليف أنيق.",
+            price: 2100,
+            meta: ["مطبوع", "4.9"],
+          },
+          {
+            name: "دعوات كلاسيك",
+            desc: "بطاقات مطبوعة بتصميم تقليدي.",
+            price: 1300,
+            meta: ["كلاسيك", "4.6"],
+          },
+        ],
+      };
+
+      let currentStepIndex = 0;
+      let serviceToDelete = null;
+
+      const SAVED_PACKAGES_KEY = "laylah_saved_packages_list"; // المفتاح للمفضلات في Profile
+      const BOOKED_PACKAGES_KEY = "laylah_booked_packages_list"; // المفتاح للحجوزات في Booking
+      const CURRENT_STATE_KEY = "laylah_package_state"; // المفتاح الحالي لهذه الصفحة
+
+      const savedState = localStorage.getItem(CURRENT_STATE_KEY);
+      const state = savedState
+        ? JSON.parse(savedState)
+        : {
+            budget: 0,
+            packageName: "",
+            notes: "",
+            selected: {},
+          };
+
+      const builderCard = document.getElementById("builderCard");
+      const budgetStat = document.getElementById("budgetStat");
+      const totalStat = document.getElementById("totalStat");
+      const remainingStat = document.getElementById("remainingStat");
+      const selectedCountStat = document.getElementById("selectedCountStat");
+      const selectedServicesList = document.getElementById(
+        "selectedServicesList",
+      );
+      const completionMessage = document.getElementById("completionMessage");
+      const completionText = document.getElementById("completionText");
+      const confirmDeletePopup = document.getElementById("confirmDeletePopup");
+      const servicesMenu = document.getElementById("servicesMenu");
+      const initialActions = document.getElementById("initialActions");
+      const serviceSelectionArea = document.getElementById(
+        "serviceSelectionArea",
+      );
+      const servicesMenuTitle = document.getElementById("servicesMenuTitle");
+
+      const successPopup = document.getElementById("successPopup");
+      const successPopupTitle = document.getElementById("successPopupTitle");
+      const successPopupMessage = document.getElementById(
+        "successPopupMessage",
+      );
+      const closeSuccessBtn = document.getElementById("closeSuccessBtn");
+      builderCard.addEventListener("click", (event) => {
+        const addServiceBtn = event.target.closest("#addServiceBtn");
+
+        if (!addServiceBtn) return;
+
+        event.preventDefault();
+        openAddMenu();
+      });
+      function saveToLocalStorage() {
+        localStorage.setItem(CURRENT_STATE_KEY, JSON.stringify(state));
+      }
+
+      function formatCurrency(value) {
+        return `${Number(value).toLocaleString("ar-SA")} ر.س`;
+      }
+
+      function getTotal() {
+        return Object.values(state.selected).reduce(
+          (sum, item) => sum + item.price,
+          0,
+        );
+      }
+
+      function getRemaining() {
+        return state.budget ? state.budget - getTotal() : null;
+      }
+
+      function renderSteps() {
+        const packageStepper = document.getElementById("packageStepper");
+        if (!packageStepper) return;
+        packageStepper.innerHTML = "";
+
+        const budgetStepBtn = document.createElement("button");
+        budgetStepBtn.className = `step-item ${currentStepIndex === 0 ? "active" : ""} ${state.budget > 0 ? "completed" : ""}`;
+        budgetStepBtn.innerHTML = `
+                     <span class="step-circle">${state.budget > 0 && currentStepIndex !== 0 ? '<span class="material-symbols-rounded">check</span>' : "1"}</span>
+                     <span class="step-label">الميزانية</span>
+                   `;
+        budgetStepBtn.onclick = () => {
+          currentStepIndex = 0;
+          render();
+        };
+        packageStepper.appendChild(budgetStepBtn);
+
+        const selectedServicesKeys = Object.keys(state.selected);
+        selectedServicesKeys.forEach((key, i) => {
+          const stepIndexInArray = steps.findIndex((s) => s.id === key);
+          const stepBtn = document.createElement("button");
+          const isActive = currentStepIndex === stepIndexInArray;
+          const visualIndex = i + 2;
+          stepBtn.className = `step-item ${isActive ? "active" : ""} completed`;
+          stepBtn.innerHTML = `
+                           <span class="step-circle">${isActive ? visualIndex : '<span class="material-symbols-rounded">check</span>'}</span>
+                           <span class="step-label">${state.selected[key].stepLabel}</span>
+                       `;
+          stepBtn.onclick = () => {
+            currentStepIndex = stepIndexInArray;
+            render();
+          };
+          packageStepper.appendChild(stepBtn);
+        });
+      }
+
+      function renderDetailsStep(step) {
+        builderCard.innerHTML = `
+                     <div class="package-stepper" id="packageStepper"></div>
+                     <div class="step-head">
+                       <div class="step-copy">
+                         <p class="eyebrow">التجهيز الأولي</p>
+                         <h2>${step.title}</h2>
+                         <p>${step.description}</p>
+                       </div>
+                       <span class="step-icon"><span class="material-symbols-rounded">${step.icon}</span></span>
+                     </div>
+                     <div class="form-grid">
+                       <div class="form-field">
+                         <label for="budgetInput">الميزانية الكلية</label>
+                         <input class="input-f num" id="budgetInput" type="number" min="0" value="${state.budget || ""}" placeholder="مثال: 45000" />
+                       </div>
+                       <div class="form-field">
+                         <label for="packageNameInput">اسم الباقة اختياري</label>
+                         <input class="input-f" id="packageNameInput" type="text" value="${state.packageName}" placeholder="مثال: باقة زفاف جدة" />
+                       </div>
+                       <div class="form-field full">
+                         <label for="notesInput">تفاصيل إضافية اختيارية</label>
+                         <textarea class="input-f" id="notesInput" placeholder="اكتبي أي تفضيلات مهمة مثل المدينة، عدد الضيوف، أو نمط الحفل.">${state.notes}</textarea>
+                       </div>
+                     </div>
+                     <div class="step-actions" style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+            <button class="btn btn-secondary" type="button" id="saveDetailsBtn">حفظ الميزانية</button>
+<button class="btn btn-primary" type="button" id="addServiceBtn">
+  <span class="material-symbols-rounded">add</span>
+  إضافة خدمة
+</button>
+           </div>
+                   `;
+
+        renderSteps();
+
+        // التعديل: استماع فوري لتغير اسم الباقة والملاحظات
+        document.getElementById("packageNameInput").oninput = (e) => {
+          state.packageName = e.target.value;
+          saveToLocalStorage();
+        };
+        document.getElementById("notesInput").oninput = (e) => {
+          state.notes = e.target.value;
+          saveToLocalStorage();
+        };
+
+        document.getElementById("saveDetailsBtn").onclick = () => {
+          state.budget =
+            Number(document.getElementById("budgetInput").value) || 0;
+          state.packageName = document
+            .getElementById("packageNameInput")
+            .value.trim();
+          state.notes = document.getElementById("notesInput").value.trim();
+          saveToLocalStorage();
+          render();
+          showCompletion("تم حفظ الميزانية بنجاح");
+        };
+      }
+
+      function renderServiceStep(step) {
+        const options = services[step.id] || [];
+        const remaining = getRemaining();
+
+        builderCard.innerHTML = `
+                     <div class="package-stepper" id="packageStepper"></div>
+                     <div class="step-head">
+                       <div class="step-copy">
+                         <p class="eyebrow">اختيار خدمة</p>
+                         <h2>${step.title}</h2>
+                         <p>${step.description}</p>
+                       </div>
+                       <span class="step-icon"><span class="material-symbols-rounded">${step.icon}</span></span>
+                     </div>
+
+                     <div class="services-toolbar">
+                       <div class="remaining-budget">
+                         <span class="material-symbols-rounded">account_balance_wallet</span>
+                         <span>المتبقي: <span class="num">${remaining === null ? "غير محدد" : formatCurrency(remaining)}</span></span>
+                       </div>
+                       <button class="btn btn-secondary" type="button" id="innerDeleteServiceBtn">
+                         <span class="material-symbols-rounded">delete</span> حذف الخدمة
+                       </button>
+                     </div>
+
+                     <div class="service-options-grid">
+                       ${options
+                         .map((service, index) => {
+                           const selected =
+                             state.selected[step.id]?.name === service.name;
+                           const currentSelectedPrice =
+                             state.selected[step.id]?.price || 0;
+                           const exceedsBudget =
+                             state.budget &&
+                             service.price > remaining + currentSelectedPrice;
+                           return `
+                             <article class="card service-option-card ${selected ? "selected" : ""} ${exceedsBudget ? "disabled" : ""}" data-service-index="${index}">
+                               <div class="service-option-top">
+                                 <div>
+                                   <h3>${service.name}</h3>
+                                   <p>${service.desc}</p>
+                                 </div>
+                                 <span class="price-tag num">${formatCurrency(service.price)}</span>
+                               </div>
+                               <div class="meta-row">${service.meta.map((item) => `<span class="chip">${item}</span>`).join("")}</div>
+                               <div class="service-card-actions">
+                                 <button class="btn ${selected ? "btn-primary" : "btn-secondary"}" type="button" ${exceedsBudget ? "disabled" : ""}>
+                                   ${selected ? "تم الاختيار" : "إضافة الخدمة"}
+                                 </button>
+                               </div>
+                             </article>
+                           `;
+                         })
+                         .join("")}
+                     </div>
+
+                     <div class="step-actions" style="display: flex; justify-content: flex-start; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+  <button class="btn btn-secondary" type="button" id="prevStepBtn">العودة للميزانية</button>
+
+  <button class="btn btn-primary" type="button" id="addServiceBtn">
+    <span class="material-symbols-rounded">add</span>
+    إضافة خدمة
+  </button>
+</div>
+                     
+                   `;
+
+        renderSteps();
+
+        document.querySelectorAll(".service-option-card").forEach((card) => {
+          card.onclick = () => {
+            if (card.classList.contains("disabled")) return;
+            const service = options[Number(card.dataset.serviceIndex)];
+            state.selected[step.id] = {
+              ...service,
+              stepId: step.id,
+              stepLabel: step.label,
+            };
+            saveToLocalStorage();
+            render();
+          };
+        });
+
+        document.getElementById("innerDeleteServiceBtn").onclick = () => {
+          serviceToDelete = step.id;
+          confirmDeletePopup.classList.add("show");
+        };
+
+        document.getElementById("prevStepBtn").onclick = () => {
+          currentStepIndex = 0;
+          render();
+        };
+        document.getElementById("addServiceBtn").onclick = openAddMenu;
+      }
+
+      function openAddMenu() {
+        servicesMenuTitle.textContent = "إضافة خدمة";
+        initialActions.style.display = "none";
+        serviceSelectionArea.style.display = "block";
+        const selectElement = document.getElementById("serviceTypeSelect");
+        Array.from(selectElement.options).forEach((option) => {
+          const isAlreadySelected = state.selected.hasOwnProperty(option.value);
+          option.style.display = isAlreadySelected ? "none" : "block";
+          option.disabled = isAlreadySelected;
+        });
+        const firstAvailable = Array.from(selectElement.options).find(
+          (opt) => !opt.disabled,
+        );
+        if (firstAvailable) selectElement.value = firstAvailable.value;
+        servicesMenu.classList.add("open");
+        servicesMenu.setAttribute("aria-hidden", "false");
+      }
+
+      function openManageMenu(serviceId) {
+        servicesMenuTitle.textContent = "إدارة خدمات الباقة";
+        initialActions.style.display = "grid";
+        serviceSelectionArea.style.display = "none";
+        document.getElementById("serviceTypeSelect").value = serviceId;
+        servicesMenu.classList.add("open");
+        servicesMenu.setAttribute("aria-hidden", "false");
+      }
+
+      function closeServicesMenu() {
+        servicesMenu.classList.remove("open");
+        servicesMenu.setAttribute("aria-hidden", "true");
+      }
+
+      function renderSummary() {
+        const selected = Object.values(state.selected);
+        const total = getTotal();
+        const remaining = getRemaining();
+
+        budgetStat.textContent = state.budget
+          ? formatCurrency(state.budget)
+          : "غير محددة";
+        totalStat.textContent = formatCurrency(total);
+        remainingStat.textContent =
+          remaining === null ? "غير محدد" : formatCurrency(remaining);
+        selectedCountStat.textContent = `${selected.length}`;
+
+        if (!selected.length) {
+          selectedServicesList.innerHTML = `<div class="empty-summary">لم يتم اختيار أي خدمة بعد.</div>`;
+          return;
+        }
+
+        selectedServicesList.innerHTML = selected
+          .map(
+            (item) => `
+                         <div class="selected-service-item">
+                           <div class="selected-service-head">
+                             <strong>${item.stepLabel}</strong>
+                             <button class="icon-btn" type="button" data-manage-id="${item.stepId}">
+                               <span class="material-symbols-rounded">more_vert</span>
+                             </button>
+                           </div>
+                           <span>${item.name}</span>
+                           <span class="price-tag num">${formatCurrency(item.price)}</span>
+                         </div>
+                       `,
+          )
+          .join("");
+
+        document.querySelectorAll("[data-manage-id]").forEach((btn) => {
+          btn.onclick = () => openManageMenu(btn.dataset.manageId);
+        });
+      }
+
+      document.getElementById("closeServicesMenu").onclick = closeServicesMenu;
+
+      document.getElementById("editServiceAction").onclick = () => {
+        const serviceId = document.getElementById("serviceTypeSelect").value;
+        const index = steps.findIndex((step) => step.id === serviceId);
+        if (index !== -1) {
+          currentStepIndex = index;
+          closeServicesMenu();
+          render();
+        }
+      };
+
+      document.getElementById("deleteServiceAction").onclick = () => {
+        serviceToDelete = document.getElementById("serviceTypeSelect").value;
+        closeServicesMenu();
+        confirmDeletePopup.classList.add("show");
+      };
+
+      document.getElementById("confirmGoToService").onclick = () => {
+        const serviceId = document.getElementById("serviceTypeSelect").value;
+        const index = steps.findIndex((step) => step.id === serviceId);
+        if (index !== -1) {
+          currentStepIndex = index;
+          closeServicesMenu();
+          render();
+        }
+      };
+
+      document.getElementById("confirmDeleteBtn").onclick = () => {
+        if (serviceToDelete) {
+          delete state.selected[serviceToDelete];
+          saveToLocalStorage();
+          confirmDeletePopup.classList.remove("show");
+          serviceToDelete = null;
+          currentStepIndex = 0;
+          render();
+        }
+      };
+
+      document.getElementById("cancelDeleteBtn").onclick = () => {
+        confirmDeletePopup.classList.remove("show");
+      };
+
+      function showCompletion(message) {
+        completionText.textContent = message;
+        completionMessage.classList.add("show");
+      }
+
+      function render() {
+        completionMessage.classList.remove("show");
+        const step = steps[currentStepIndex] || steps[0];
+        if (currentStepIndex === 0) renderDetailsStep(step);
+        else renderServiceStep(step);
+        renderSummary();
+      }
+
+      // التعديل: وظيفة الربط والأرشفة المحسنة
+      function archiveCurrentPackage(type) {
+        const targetKey =
+          type === "booking" ? BOOKED_PACKAGES_KEY : SAVED_PACKAGES_KEY;
+        let list = JSON.parse(localStorage.getItem(targetKey) || "[]");
+
+        const nameInput = document.getElementById("packageNameInput");
+        if (nameInput) state.packageName = nameInput.value;
+
+        const packageToSave = JSON.parse(JSON.stringify(state));
+        packageToSave.saveDate = new Date().toLocaleDateString("ar-SA");
+        packageToSave.totalPrice = getTotal();
+        packageToSave.status = type === "booking" ? "قيد المعالجة" : "محفوظة";
+
+        if (!packageToSave.packageName)
+          packageToSave.packageName =
+            (type === "booking" ? "حجز باقة " : "باقة مخصصة ") +
+            (list.length + 1);
+
+        list.push(packageToSave);
+        localStorage.setItem(targetKey, JSON.stringify(list));
+      }
+
+      // تعديل هنا: تم دمج الوظائف لضمان عدم حذف المحتوى من الملخص فوراً إلا بعد إغلاق الرسالة
+      document.getElementById("bookPackageBtn").onclick = async () => {
+        if (Object.keys(state.selected).length === 0) {
+          alert("يرجى إضافة خدمات أولاً");
+          return;
+        }
+
+        if (!localStorage.getItem("userPhone")) {
+          alert("الرجاء تسجيل الدخول أولاً");
+          window.location.href = "login.html";
+          return;
+        }
+
+        archiveCurrentPackage("booking");
+
+        let firebaseSuccess = false;
+        try {
+          if (typeof window.handleBooking === "function") {
+            firebaseSuccess = await window.handleBooking(); // استدعاء Firebase
+          }
+        } catch (error) {
+          console.warn("تعذر حفظ الحجز في Firebase:", error);
+        }
+
+        successPopupTitle.innerHTML = `<span class="material-symbols-rounded">task_alt</span> تم حجز الباقة بنجاح`;
+        successPopupMessage.textContent = firebaseSuccess
+          ? "يمكنك متابعة تفاصيل حجزك عبر صفحة حجوزاتي."
+          : "تم حفظ الحجز على جهازك، ويمكنك متابعته من صفحة حجوزاتي.";
+        successPopup.classList.add("show");
+      };
+
+      document.getElementById("favoritePackageBtn").onclick = async () => {
+        if (Object.keys(state.selected).length === 0) {
+          alert("يرجى إضافة خدمات أولاً");
+          return;
+        }
+
+        if (!localStorage.getItem("userPhone")) {
+          alert("الرجاء تسجيل الدخول أولاً");
+          window.location.href = "login.html";
+          return;
+        }
+
+        archiveCurrentPackage("favorite");
+
+        let firebaseSuccess = false;
+        try {
+          if (typeof window.handleSaveToFavorites === "function") {
+            firebaseSuccess = await window.handleSaveToFavorites(); // استدعاء Firebase
+          }
+        } catch (error) {
+          console.warn("تعذر حفظ المفضلة في Firebase:", error);
+        }
+
+        successPopupTitle.innerHTML = `<span class="material-symbols-rounded">favorite</span> تمت الإضافة للمفضلة`;
+        successPopupMessage.textContent = firebaseSuccess
+          ? "تم حفظ الباقة بنجاح في الباقات المفضلة."
+          : "تم حفظ الباقة على جهازك ضمن المفضلة.";
+        successPopup.classList.add("show");
+      };
+
+      closeSuccessBtn.onclick = () => {
+        successPopup.classList.remove("show");
+        // تصفير الواجهة لبناء باقة جديدة فقط بعد انتهاء العملية بالكامل
+        state.budget = 0;
+        state.packageName = "";
+        state.notes = "";
+        state.selected = {};
+        currentStepIndex = 0;
+        saveToLocalStorage();
+        render();
+      };
+
+      window.onscroll = function () {
+        const nav = document.querySelector(".navbar");
+        nav.style.boxShadow =
+          window.pageYOffset > 50 ? "var(--shadow-2)" : "none";
+      };
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const editState = localStorage.getItem("laylah_current_design_state");
+        if (editState) {
+          const parsed = JSON.parse(editState);
+          state.budget = parsed.budget || 0;
+          state.packageName = parsed.packageName || "";
+          state.notes = parsed.notes || "";
+          state.selected = parsed.selected || {};
+          localStorage.removeItem("laylah_current_design_state");
+          saveToLocalStorage();
+          render();
+        }
+      });
+
+      render();
+    </script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        push,
+      } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyC5LqK5nYvhmgVLB8utjPjLQdNQMy_qe2c",
+        authDomain: "comments-test01.firebaseapp.com",
+        databaseURL: "https://comments-test01-default-rtdb.firebaseio.com",
+        projectId: "comments-test01",
+        storageBucket: "comments-test01.firebasestorage.app",
+        messagingSenderId: "1061900134848",
+        appId: "1:1061900134848:web:a740fa25f3a27a36be0025",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      async function saveToFirebase(path) {
+        const userPhone = localStorage.getItem("userPhone");
+        if (!userPhone) {
+          alert("الرجاء تسجيل الدخول أولاً");
+          window.location.href = "login.html";
+          return false;
+        }
+
+        const dataToSave = {
+          packageName: state.packageName || "باقة بدون اسم",
+          budget: state.budget,
+          services: state.selected,
+          notes: state.notes,
+          totalPrice: Object.values(state.selected).reduce(
+            (sum, item) => sum + item.price,
+            0,
+          ),
+          timestamp: new Date().toISOString(),
+        };
+
+        try {
+          const newRef = push(ref(db, `${path}/${userPhone}`));
+          await set(newRef, dataToSave);
+          return true;
+        } catch (error) {
+          console.error("خطأ في الحفظ:", error);
+          return false;
+        }
+      }
+
+      window.handleSaveToFavorites = async () => {
+        return await saveToFirebase("favorites");
+      };
+
+      window.handleBooking = async () => {
+        return await saveToFirebase("bookings");
+      };
+    </script>
+  </body>
+</html>
